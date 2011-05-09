@@ -14,7 +14,7 @@ class DealsController < ApplicationController
     @coupon = Couponstat.new
 
     @activedeal = deal.get_active_deals
-    
+#commented by yogi    
     
 
   end
