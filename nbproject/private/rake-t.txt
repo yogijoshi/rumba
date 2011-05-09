@@ -1,0 +1,8 @@
+rake aborted!
+No Rakefile found (looking for: rakefile, Rakefile, rakefile.rb, Rakefile.rb)
+C:/Ruby192/lib/ruby/1.9.1/rake.rb:2367:in `raw_load_rakefile'
+C:/Ruby192/lib/ruby/1.9.1/rake.rb:2007:in `block in load_rakefile'
+C:/Ruby192/lib/ruby/1.9.1/rake.rb:2058:in `standard_exception_handling'
+C:/Ruby192/lib/ruby/1.9.1/rake.rb:2006:in `load_rakefile'
+C:/Ruby192/lib/ruby/1.9.1/rake.rb:1991:in `run'
+C:/Ruby192/bin/rake:31:in `<main>'

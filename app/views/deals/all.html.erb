@@ -1,0 +1,48 @@
+<h1>Deals#all</h1>
+
+<%#*Count :%>
+<%#=  @all.count %>
+<%# @all.each do |deal| %>
+
+ <%#*<br/>%>
+ <%#= deal.title %>
+ <%#*<br/>%>
+<%#  end %>
+
+
+<%#*Get one deal from mongo id only for rumba%>
+<%#*<br />%>
+<%#= @one.title %>
+<br/>
+<%#=  @abc.count %>
+<%#=  @c.count%>
+
+<% @activedeal.each do |active|
+
+
+  store_short_code = @store.get_short_code(active.store_id)
+  coup =@coupon.get_coupon(active.shortcode, store_short_code)
+%>
+
+
+   Deal description : <%= active.description%>
+   <br/>
+   Deal end time  :  <%= active.end_time %>
+   <br/>
+    Fine Print  :    <%= active.fine_print %>
+   <br/>
+
+   <%= store_short_code %>
+   <%= active.shortcode %>
+   <%#= @r.FreeToUse%>
+    FreeToUse:  <%= coup.FreeToUse%>
+    Downloaded: <%= coup.Downloaded %>
+    Redeemed : <%= coup.Redeemed %>
+    Total :  <%= coup.total %>
+    <br/>
+    <br/>
+    <br/>
+
+
+
+  <%end %>

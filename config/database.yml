@@ -1,0 +1,18 @@
+development:
+  adapter: mongodb
+  host: localhost
+  database: tejas-test-development
+
+test: &TEST
+  adapter: mongodb
+  host: localhost
+  database: tejas-test-development
+
+production:
+  adapter: mongodb
+  host: localhost
+  database: tejas-test-development
+
+cucumber:
+  <<: *TEST
+
