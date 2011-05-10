@@ -1,17 +1,8 @@
 development:
   adapter: mongodb
-  host: localhost
-  database: tejas-test-development
-
-test: &TEST
-  adapter: mongodb
-  host: localhost
-  database: tejas-test-development
-
-production:
-  adapter: mongodb
-  host: localhost
-  database: tejas-test-development
+  host: 178.79.145.128
+  port: 27017
+  database: dealtadka_live
 
 cucumber:
   <<: *TEST

@@ -1,14 +1,18 @@
-<h1>Stores#relatedstores</h1>
-<p>Find me in app/views/stores/relatedstores.html.erb</p>
-Count :
-
-
+<h1>All Stores</h1>
+<% if @all %>
+Total :
 <%=  @all.size %>
-
+<% i = 0 %>
 <% @all.each do |store| %>
-
-<%= store.store_name %>
- <% end  %>
+</br>
+<% i = i + 1 %>
+<%= i %>)
+<%= link_to(store.store_name,:action => "get_store_details", :store_id => store._id) -%> 
+<% end  %>
+<% else %>
+No stores available
+<% end  %>
+ 
 
 
 

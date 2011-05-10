@@ -1,0 +1,44 @@
+
+<h1>Details of current store</h1>
+<% if @current_store %>
+Name:
+<%= @current_store.store_name %>
+</br>City:
+<%= @current_store.city %>
+</br>Country:
+<%= @current_store.country %>
+</br>Categories:
+<% for category in @current_store.categories -%>
+<%= category %>
+<% end %>
+</br>Status:
+<% if @current_store.status = 1 %>
+Active
+<% else %>
+InActive
+<% end  %>
+</br>Address1:
+<%= @current_store.address1 %>
+</br>Address2:
+<%= @current_store.address2 %>
+<% end  %>
+</br></br>
+<%= link_to("Go Back",:action => "relatedstores") -%>
+
+<h3>All active deals of  
+<%= @current_store.store_name %></h3>
+<% if @activedeals_of_store %>
+<% for active in @activedeals_of_store %>
+   
+   <h4>Deal title : <%= link_to(active.title) -%></h4>
+   Deal description : <%= active.description%>
+   </br>
+   Deal end time  :  <%= active.end_time %>
+   </br>	
+    Fine Print  :    <%= active.fine_print %>
+   </br>
+   </br>
+<% end %>
+<% else %>
+Sorry..No Active deals at this time..
+<% end %>

@@ -24,11 +24,6 @@ class StoresController < ApplicationController
   	@current_store = Stores.find_this_store(params[:store_id])
   	
   	@activedeals_of_store = Deals.find_activedeals_by_store(params[:store_id])
-  	
- # 	store_short_code = Stores.get_short_code(params[:store_id])
- # 	
- #       coup = Coupons.get_coupon(active.shortcode, store_short_code)
-
   end
   
 end

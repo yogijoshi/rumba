@@ -10,8 +10,6 @@ Mongo::Application.routes.draw do |map|
   get "deals/all"
 
   get "stores/relatedstores"
-  
-  get "stores/get_store_details"
 
   get "user/index"
 

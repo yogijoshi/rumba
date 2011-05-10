@@ -3,7 +3,7 @@ class Stores
   include MongoMapper::Document   
 
  def self.get_all_stores
-   debugger
+
    s = Stores.all
 
  end
