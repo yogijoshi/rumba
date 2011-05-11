@@ -1,12 +1,11 @@
 class Stores
 
   include MongoMapper::Document   
-
- def self.get_all_stores
-   debugger
+  def self.get_all_stores
+   #debugger
+   name="Deals"
    s = Stores.all
-
- end
+  end
 
 
  def self.get_all_active_stores
@@ -23,14 +22,13 @@ class Stores
 
  def self.get_short_code(store_id)
 
-   s = Stores.find(store_id )
+   Stores.find(store_id).shortcode
 
  end
 
  def self.find_this_store(store_id)
    
    s = Stores.find(store_id)
- 	
  end
 end
 

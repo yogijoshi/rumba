@@ -5,7 +5,7 @@ if db_config[Rails.env] && db_config[Rails.env]['adapter'] == 'mongodb'
   #MongoMapper.connection = Mongo::Connection.new(mongo['hostname'])
   #MongoMapper.database = mongo['database']
   #mongo = db_config[Rails.env]
-  MongoMapper.connection = Mongo::Connection.new("178.79.145.128")
-  MongoMapper.database = "dealtadka_live"
+  MongoMapper.connection = Mongo::Connection.new("localhost")
+  MongoMapper.database = "tejas-test-development"
 end
 

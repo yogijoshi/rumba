@@ -12,6 +12,8 @@ Mongo::Application.routes.draw do |map|
   get "stores/relatedstores"
   
   get "stores/get_store_details"
+  
+  get "deals/get_deal_details"
 
   get "user/index"
 

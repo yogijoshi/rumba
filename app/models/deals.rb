@@ -27,23 +27,22 @@ class Deals
   end   
 
 
+ def self.get_store_id(deal_id)
 
- def get_all_deals
+  deal = Deals.find(deal_id)
+  deal.store_id
+ end
 
-   deals =  Deals.all
+ def self.get_short_code(deal_id)
+
+  deal = Deals.find(deal_id)
+  deal.shortcode
+ end
+ 
+ def self.get_deal_by_id(deal_id)
+
+   Deals.find(deal_id)
    
- end
-
- def get_store_id(deal_id)
-
-  deals = Deals.find(deal_id)
-
- end
-
- def get_short_code(deal_id)
-
-  deals = Deals.find(deal_id)
-
  end
   
 end
