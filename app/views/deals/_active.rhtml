@@ -1,0 +1,11 @@
+<h3>
+  <%= pagetitle %>
+</h3>
+<h4>Deal title : <%= link_to(active.title,:controller => "Deals",:action => "get_deal_details", :deal_id => active._id) -%></h4>
+    Deal description : <%= active.description%>
+</br>
+   Deal end time  :    <%= active.end_time %>
+</br>
+    Fine Print  :      <%= active.fine_print %>
+</br>
+</br>

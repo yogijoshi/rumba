@@ -12,7 +12,7 @@ Name:
 <%= category %>
 <% end %>
 </br>Status:
-<% if @current_store.status = 1 %>
+<% if @current_store.status == 1 %>
 Active
 <% else %>
 InActive
@@ -24,21 +24,12 @@ InActive
 <% end  %>
 </br></br>
 <%= link_to("Go Back",:action => "relatedstores") -%>
-
 <h3>All active deals of  
 <%= @current_store.store_name %></h3>
 <% if @activedeals_of_store.size != 0 %>
-<% for active in @activedeals_of_store %>
-   
-   <h4>Deal title : <%= link_to(active.title,:controller => "Deals",:action => "get_deal_details", :deal_id => active._id) -%></h4>
-   Deal description : <%= active.description%>
-   </br>
-   Deal end time  :  <%= active.end_time %>
-   </br>	
-    Fine Print  :    <%= active.fine_print %>
-   </br>
-   </br>
-<% end %>
+
+<%= render :partial => "deals/active", :collection => @activedeals_of_store, :item => :active,
+           :locals => {:pagetitle => "Active deals"} %>
 <% else %>
 Sorry..No Active deals at this time..
 <% end %>

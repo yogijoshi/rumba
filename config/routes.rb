@@ -17,6 +17,9 @@ Mongo::Application.routes.draw do |map|
 
   get "user/index"
 
+  resources :stores do
+    resources :deals
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

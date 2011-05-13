@@ -12,7 +12,8 @@ class DealsController < ApplicationController
     deal_id = params[:deal_id]
     @deal = Deals.get_deal_by_id(deal_id)
     store_short_code = Stores.get_short_code(@deal.store_id)
-    @coup = Couponsstat.get_coupon ( @deal.shortcode , store_short_code )
+    @coup = Couponsstat.get_coupon( @deal.shortcode , store_short_code )
+    
   end
 
 end
