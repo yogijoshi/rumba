@@ -1,0 +1,13 @@
+<table border="0">
+<% for like in @likes %>
+ <tr>
+ <td><b><%= like["name"]%> </b></td>
+ </tr>
+ <tr>
+ <td><%= like["category"] %></td>
+ </tr>
+ <tr>
+ <td>&ndash;</td>
+ </tr>
+<%end %>
+</table>

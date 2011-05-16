@@ -3,8 +3,8 @@
 require 'rubygems'
 require 'mongo'
 require 'koala'
-
-
+require 'twitter'
+require 'oauth'
 
 source 'http://gemcutter.org'
 
@@ -12,6 +12,8 @@ gem "rails", "3.0.6"
 gem "mongo_mapper"
 gem 'koala'
 gem 'ruby-debug'
+gem 'twitter'
+gem 'oauth', '~> 0.4.4'
 
 if defined?(BSON_C)
   warn 'YAY'

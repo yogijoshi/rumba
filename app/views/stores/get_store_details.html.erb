@@ -29,7 +29,15 @@ InActive
 <% if @activedeals_of_store.size != 0 %>
 
 <%= render :partial => "deals/active", :collection => @activedeals_of_store, :item => :active,
-           :locals => {:pagetitle => "Active deals"} %>
+           :locals => {:pagetitle => "Active deal's details"} %>
 <% else %>
 Sorry..No Active deals at this time..
+<% end %>
+<h3>All InActive deals of
+<%= @current_store.store_name %></h3>
+<% if @inactivedeals_of_store.size != 0 %>
+<%= render :partial => "deals/inactive", :collection => @inactivedeals_of_store, :item => :inactive,
+           :locals => {:pagetitle => "Inactive deal's details"} %>
+<% else %>
+No inactive deals for this store
 <% end %>

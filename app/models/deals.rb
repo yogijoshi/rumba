@@ -10,7 +10,7 @@ class Deals
   
   def self.find_inactivedeals_by_store(store_id)
   
-  	deals =  Deals.where(:status => 'inactive', :store_id => store_id)
+  	deals =  Deals.where(:status => 'over', :store_id => store_id)
 
   end
   

@@ -1,4 +1,10 @@
 Mongo::Application.routes.draw do |map|
+  get "twitter/index"
+
+  get "twitter/login"
+
+  get "twitter/finalize"
+
   get "login/index"
 
   get "home/index"

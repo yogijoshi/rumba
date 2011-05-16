@@ -24,6 +24,8 @@ class StoresController < ApplicationController
   	@current_store = Stores.find_this_store(params[:store_id])
   	
   	@activedeals_of_store = Deals.find_activedeals_by_store(params[:store_id]).to_a
+
+    @inactivedeals_of_store = Deals.find_inactivedeals_by_store(params[:store_id]).to_a
   	
  # 	store_short_code = Stores.get_short_code(params[:store_id])
  # 	
