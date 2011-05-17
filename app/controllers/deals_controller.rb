@@ -15,7 +15,13 @@ class DealsController < ApplicationController
     @coup = Couponsstat.get_coupon( @deal.shortcode , store_short_code )
     
   end
-
+  def get_deal
+    if current_user
+      #get_deal call to PHP SERVICE
+    else
+      redirect_url = ''
+    end
+  end
 end
 
 

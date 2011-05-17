@@ -1,3 +1,4 @@
+require File.expand_path('./config/initializers/twitter.rb')
 class TwitterController < ApplicationController
   def index
   end
@@ -25,16 +26,16 @@ class TwitterController < ApplicationController
   private
   def client
     Twitter.configure do |config|
-      config.consumer_key = "Gabi9MYs3DYHuWMb28vBIg"
-      config.consumer_secret = "YLSBzdgCEz2bgSeYA81BM7BJ3xvuPTC4velsm3RHF0"
+      config.consumer_key = APP_CONFIG["consumer_key"]
+      config.consumer_secret = APP_CONFIG["consumer_secret"]
       config.oauth_token = session['access_token']
       config.oauth_token_secret = session['access_secret']
     end
     @client = Twitter::Client.new
   end
   def oauth_consumer
-    @oauth_consumer = OAuth::Consumer.new( "Gabi9MYs3DYHuWMb28vBIg",
-                                           "YLSBzdgCEz2bgSeYA81BM7BJ3xvuPTC4velsm3RHF0",
+    @oauth_consumer = OAuth::Consumer.new( APP_CONFIG["consumer_key"],
+                                           APP_CONFIG["consumer_secret"],
                                             :site => 'http://api.twitter.com',
                                             :request_endpoint => 'http://api.twitter.com',
                                             :sign_in => true)

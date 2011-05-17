@@ -1,9 +1,4 @@
 development:
-  adapter: mongodb
-  host: 178.79.145.128
-  port: 27017
+  hostname: 178.79.145.128
   database: dealtadka_live
-
-cucumber:
-  <<: *TEST
 

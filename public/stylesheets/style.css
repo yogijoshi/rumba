@@ -1,0 +1,876 @@
+/* 
+    Document   : style
+    Created on : May 17, 2011, 3:50:30 PM
+    Author     : User
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+body {
+    font-family: "tahoma", verdana, arial, sans-serif;
+}
+
+.clearfix{clear:both;}
+.right{float:right;}
+.left{float:left;}
+a {
+    text-decoration: none;
+}
+.bold{
+    font-weight:bold;
+    }
+.blue {
+    color: #3b5998;
+}
+
+.darkgray {
+    color: #3d3d3e;
+}
+
+.gray {
+    color: #5c5a5a;
+}
+
+.darkred {
+    color: #911010;
+}
+
+.smsgray {
+    color: #7e7e7e;
+}
+
+.darkblue {
+    color: #3b5998;
+}
+
+.regular_text{
+    font-family: "tahoma", verdana, arial, sans-serif;
+    font-size: 12px;
+    color: #5c5a5a;
+}
+
+.main_container {
+    width: 520px;
+    height: 1500px;
+    float: left;
+    position:relative;
+}
+
+.deal_container {
+    width: 520px;
+    height: auto;
+    float: left;
+}
+
+
+.inner_top_container {
+    width: 520px;
+    float: left;
+}
+
+.inner_top_container_left_title {
+    float: left;
+    padding-top: 5px;
+    font-family: "tahoma", verdana, arial, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.inner_top_container_right {
+    float: right;
+}
+
+.left_side_text {
+    float: left;
+    padding-top: 15px;
+    font-family: "tahoma", verdana, arial, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.right_side_logo {
+    float: left;
+    padding-top: 20px;
+    padding-left: 15px;
+}
+.main_coupan_container_and_posts {
+    float: left;
+}
+
+.main_coupon_container {
+    width: 500px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.main_coupon_container_left_border {
+    background: url('<?php echo $this->config->item('images_path'); ?>dotted-border_vertical_dual1.png') repeat-y;
+    height: auto;
+    width: 500px;
+    float: left;
+}
+.discount_detail_main {
+    float: left;
+    width: 300px;
+}
+
+.seperator {
+    float: left;
+    background: url('<?php echo $this->config->item('images_path'); ?>seperator_h.png') repeat-x;
+    width: 520px;
+    height: 2px;
+}
+
+.coupon_img_new {
+    background:url('<?php echo $this->config->item('images_path'); ?>standard_bg.png') no-repeat;
+    width: 160px;
+    height: 100px;
+    float: left;
+}
+
+.coupon_img {
+    padding-left: 40px;
+    padding-top: 10px;
+}
+
+.coupon_img a img {
+    border: 0;
+}
+
+.main_title {
+    float: left;
+    font-family: "tahoma", verdana, arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    width: 320px;
+}
+.discount_detail {
+    float: left;
+    font-family: "tahoma", verdana, arial, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    padding-bottom: 5px;
+    width: 320px;
+    line-height: 1.3;
+}
+
+.expire_and_location {
+    font-family: "tahoma", verdana, arial, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    width:320px;
+    float: left;
+}
+
+.expire_title {
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.location_title {
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.expire_text {
+    float: left;
+}
+
+.location_text {
+    width:250px;
+    float: left;
+}
+.fb_15_15{
+float:left;
+margin-left:7px;
+}
+.fb_15_15_text {
+    float: left;
+    font-family: "tahoma",verdana,arial,sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: center;
+    width: 160px;
+}
+
+.fb_15_15_text a {
+    text-decoration: none;
+}
+
+.main_coupan_container_left {
+    float: left;
+    margin-left:10px;
+    position:relative;
+    width: 160px;
+}
+.coupon_img_new_corner{
+    position:absolute;
+    top:0px;
+    left:0px;
+    }
+.get_discount_fb {
+    float: left;
+    clear: both;
+    margin-top: 10px;
+    padding-left: 25px;
+}
+
+.get_discount_fb a img {
+    border: 0;
+}
+
+
+.fb_friends_photo {
+    float: left;
+}
+
+.fb_friends_photo img {
+    padding-left: 2px;
+    padding-top:5px;
+    float: left;
+}
+
+.main_coupon_container_bottom_border img {
+    float: left;
+}
+
+.logo {
+    float: left;
+    padding-left: 10px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.main_title a {
+    text-decoration: none;
+}
+
+.msg_text_for_friends {
+    float: left;
+       font-family: "tahoma", verdana, arial, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    margin-top: 8px;
+    padding-bottom:5px;
+    margin-bottom:5px;
+}
+
+.msg_text_for_friends a{
+    color: #7E7E7E;
+       font-family: "tahoma", verdana, arial, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.expire {
+    float: left;
+    padding-bottom:2px;
+    width:320px;
+}
+
+.location {
+    float: left;
+    padding-bottom: 10px;
+    width:320px;
+}
+
+.location2 {
+    float: right;
+    padding-top: 5px;
+    padding-right:10px;
+}
+
+.did_coupons_work_for_you {
+    float: left;
+    font-family: "tahoma", verdana, arial, sans-serif;
+    font-size: 10px;
+    font-weight: normal;
+    margin-left: 25px;
+    padding-top: 10px;
+    width: 115px;
+}
+
+.did_coupons_work_for_you a {
+    text-decoration: none;
+}
+
+.popup_header{
+    background-color:#3B5998;
+    height:31px;
+    float:left;
+    width:520px;
+    }
+.popup_discount_coupon_title{
+    float:left;
+    font-family: "tahoma", verdana, arial, sans-serif;
+    font-size:18px;
+    font-weight:bold;
+    color:#FFFFFF;
+    padding-left:15px;
+    margin-top:7px;
+    }
+.popup_discount_coupons_remaining{
+    float:right;
+    margin-top:3px;
+    }
+.popup_coupons_count{
+    float:left;
+    font-family: "tahoma", verdana, arial, sans-serif;
+    font-size:24px;
+    font-weight:normal;
+    color:#FFFFFF;
+    padding-right:3px;
+    }
+.popup_coupons_left{
+    float:left;
+    font-family: "tahoma", verdana, arial, sans-serif;
+    font-size:11px;
+    font-weight:normal;
+    color:#FFFFFF;
+    width:40px;
+    padding-right:3px;
+    padding-top:2px;
+    }
+.popup_close_button{
+    float:left;
+    padding-left:20px;
+    padding-top:6px;
+    padding-right:10px;}
+
+.popup_sms_email_detail_bg{
+    width:470px;
+    height:50px;
+    background-color:#eceff6;
+    float:left;
+    position:relative;
+    margin-bottom:2px;
+    }
+
+.popup_input_box_sms {
+    background: url('<?php echo $this->config->item('images_path'); ?>sms.png') no-repeat scroll 5px center #FFFFFF;
+    color: #666666;
+       font-family: "tahoma", verdana, arial, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 40px;
+    margin-top: 10px;
+    padding: 5px 5px 5px 20px;
+    position: absolute;
+    width: 280px;
+     border: 1px solid #6886BB;
+
+}
+
+.popup_input_box_email{
+    background: url('<?php echo $this->config->item('images_path'); ?>mail.png') no-repeat scroll 5px center #FFFFFF;
+    color: #666666;
+       font-family: "tahoma", verdana, arial, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 40px;
+    margin-top: 10px;
+    padding: 5px 0 5px 25px;
+    position: absolute;
+    width: 280px;
+     border: 1px solid #6886BB;
+}
+
+
+.popup_get_discount_squre_button {
+    float:right;
+    margin-right:42px;
+    margin-top:10px;
+    background:url('<?php echo $this->config->item('images_path'); ?>submit4.png');
+    height:28px;
+    width:82px;
+    }
+.popup_get_discount_squre_button_text{
+    float:left;
+    font-size:12px;
+    color:#ffffff;
+    font-family: 'tahoma',verdana,arial,sans-serif;
+    font-weight:bold;
+    padding-top:6px;
+    padding-bottom:5px;
+    padding-right:5px;
+    padding-left:6px;}
+
+.popup_get_discount_squre_button_text a{
+    color:#ffffff;
+}
+
+.popup_sms_details{
+    float:left;
+    }
+.popup_email_details{
+    float:left;
+    }
+
+.store_deal_inner_top_container{
+    width:700px;
+    float:left;
+    }
+.store_deal_inner_top_container_left_img{
+    float:left;
+    padding-top:10px;
+    padding-left:15px;
+    font-family: "tahoma", verdana, arial, sans-serif;
+    font-size:28px;
+    font-weight:bold;
+    }
+.store_deal_inner_top_container_right{
+    float:left;
+    padding-left:20px;
+    width:400px;
+    }
+.store_deal_left_side_text_top{
+    float:left;
+    padding-top:10px;
+    font-family: "tahoma", verdana, arial, sans-serif;
+    font-size:18px;
+    font-weight:bold;
+    }
+.store_deal_left_side_text_bottom{
+    float:left;
+    padding-top:3px;
+    font-family: "tahoma", verdana, arial, sans-serif;
+    font-size:14px;
+    font-weight:normal;
+    padding-right:40px;
+    }
+.store_deal_lext_side_text_phone{
+    float:left;
+    padding-top:3px;
+    padding-right:150px;
+
+    }
+.store_deal_phone_img{
+    float:left;
+    padding-top:3px;
+    }
+.store_deal_phone_number {
+    float:left;
+    font-family: "tahoma", verdana, arial, sans-serif;
+    font-size:12px;
+    font-weight:normal;
+    margin-left:5px;
+    margin-top:4px;
+    }
+.store_deal_tab_container{
+    width:700px;
+    border-bottom:1px solid #d4dae8 ;
+    float:left;
+    }
+.store_deal_tab_margin {
+    float:left;
+    margin-left:18px;
+    margin-top:10px;
+    }
+.store_deal_coupon_container{
+    float:left;
+    margin-left:80px;
+    }
+.deal_store_main_container{
+    width:700px;
+    float:left;
+    padding-bottom:20px;
+    }
+.pdt5px{
+    padding-top:5px;
+}
+.pdb5px{
+    padding-bottom:5px;
+}
+
+.pdl5px{
+    padding-left:5px;
+}
+
+.pdr5px{
+    padding-right:5px;
+}
+
+.pdt10px{
+    padding-top:10px;
+}
+.pdb10px{
+    padding-bottom:10px;
+}
+
+.pdl10px{
+    padding-left:10px;
+}
+
+.pdr10px{
+    padding-right:10px;
+}
+.fontfamily{
+    font-family: "tahoma", verdana, arial, sans-serif;
+}
+.fbicon {
+    background-image: url('<?php echo $this->config->item('images_path'); ?>fbicon.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    float: left;
+    padding-right: 5px;
+}
+.fblike {
+    background-image: url('<?php echo $this->config->item('images_path'); ?>fblikeicon.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    float: left;
+    margin-left: 20px;
+    padding-right: 5px;
+}
+.getdiscount {
+    background-image: url('<?php echo $this->config->item('images_path'); ?>getdiscount.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    display: block;
+    float: left;
+    height: 27px;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 135px;
+}
+.or1 {
+    display: block;
+    float: left;
+    font-size: 12px;
+
+    padding-top: 14px;
+    font-family: "tahoma", verdana, arial, sans-serif;
+    padding-top:0px;
+    padding-right:15px;
+    padding-left:5px;
+}
+
+.or2 {
+    display: block;
+    float: left;
+    font-size: 12px;
+    padding-left:20px;
+    padding-right:15px;
+    padding-top: 13px;
+    font-family: "tahoma", verdana, arial, sans-serif;
+    padding-top:15px;
+}
+
+.sms {
+    background-image: url('<?php echo $this->config->item('images_path'); ?>sms.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+    display: block;
+    float: left;
+    height: 17px;
+    width: 16px;
+    padding-right:2px;
+}
+.print {
+    background-image: url('<?php echo $this->config->item('images_path'); ?>print.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+    float: left;
+    height: 17px;
+    width: 16px;
+    display: block;
+    padding-right:2px;
+}
+.emaildiv {
+    background-image: url('<?php echo $this->config->item('images_path'); ?>mail.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+    float: left;
+    height: 17px;
+    width: 16px;
+    display: block;
+    padding-right:2px;
+}
+.printtxt{
+    color: #3B5998;
+    display: inline-block;
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: "tahoma", verdana, arial, sans-serif
+    }
+.innerwrap {
+    clear: both;
+    overflow: hidden;
+    padding: 5px 5px 5px 15px;
+}
+.innerwrap1 {
+    clear: both;
+    overflow: hidden;
+    padding: 5px 5px 5px 0px;
+}
+.left{
+    float:left;
+    }
+.f_size12{
+    font-size:12px;
+    }
+.friend_how_used{
+    float:left;}
+
+.popupsomething{
+    padding:20px;
+}
+
+.main_coupon_container_top_border {
+    float: left;
+    margin-top:-7px;
+    padding-bottom:5px;
+}
+
+
+#tabs_container{
+       margin: 0px;
+       float:left;
+       padding: 10px 0px 0px;
+       display:block;
+       font-family: "tahoma", verdana, arial, sans-serif;
+       font-size:11px;
+}
+#tabs_container ul.tabs{
+       list-style-type: none;
+       margin: 0px;
+       padding: 0px;
+       float:left;
+       margin-right:10px;
+}
+#tabs_container .tabs li{
+       background-color: #ffffff;
+       float: left;
+       margin: 0px 5px 0px 0px;
+       overflow: hidden;
+       position: relative;
+       margin-bottom:-4px;
+}
+#tabs_container .tabs li.selected{
+       background: #edeff4;
+}
+#tabs_container .tabs li a{
+       border:1px solid #D8DFEA;
+       border-bottom: 0px;
+       display: block;
+       font-size: 12px;
+       font-weight: bold;
+       padding: 3px 18px;
+       white-space: nowrap;
+       color: #3B5998;
+       cursor: pointer;
+       text-decoration: none;
+}
+#tabs_container .tabs li.selected a{
+       color: #333;
+       font-size: 12px;
+       padding: 3px 18px 5px;
+}
+.tabs_main_container{
+    float:left;
+    }
+.tab_inner_img_selected{
+    float:left;
+    padding-left:10px;
+    padding-right:4px;
+    padding-bottom:4px;
+    padding-top:4px;
+    }
+.tab_inner_img_unselected{
+    float:left;
+    padding-left:10px;
+    padding-right:3px;
+    padding-bottom:3px;
+    padding-top:3px;
+    }
+.more_detail{
+    font-size:9px;
+    }
+
+.navbasic{
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-top: 20px;
+}
+#tabs_container .tabs2 li a{
+       border:1px solid #D8DFEA;
+       display: block;
+       font-size: 12px;
+       font-weight: bold;
+       padding: 3px 9px;
+       white-space: nowrap;
+       color: #3B5998;
+       cursor: pointer;
+       text-decoration: none;
+}
+#tabs_container .tabs2 li{
+       background-color: #ffffff;
+       float: left;
+       margin: 0px 5px 0px 0px;
+       overflow: hidden;
+       position: relative;
+       margin-bottom:-4px;
+}
+
+.grey{
+    color:#73738a;
+    }
+.f_size18{
+    font-size:18px;
+    }
+.fb_thanks_page_main_container{
+    float:left;
+    width:520px;
+    }
+.fb_thanks_page_under_tab_main{
+    float:left;
+    background-color:#edeff4;
+    width:520px;
+
+    }
+.friends_name{
+    float:left;
+    width:120px;
+    padding:2px;
+    margin-bottom:10px;
+    }
+.mobile_number{
+    float:left;
+    width:220px;
+    padding:2px;
+    margin-bottom:10px;
+    }
+.fb_thanks_page_under_tab_tbl{
+    font-family: "tahoma",verdana,arial,sans-serif;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    margin-top: 10px;
+    }
+
+#tabs_container1{
+       margin: 0px;
+       float:left;
+       display:block;
+       font-family:'tahoma',verdana,arial,sans-serif;
+       font-size:11px;
+}
+#tabs_container1 ul.tabs1{
+       list-style-type: none;
+       margin: 0px;
+       padding: 0px;
+       float:left;
+       margin-right:10px;
+}
+#tabs_container1 .tabs1 li{
+       background-color: #ffffff;
+       float: left;
+       margin: -2px 2px 0px 0px;
+       overflow: hidden;
+       position: relative;
+}
+#tabs_container1 .tabs1 li.selected1{
+       background: #edeff4;
+}
+#tabs_container1 .tabs1 li a{
+       border:1px solid #D8DFEA;
+       border-bottom: 0px;
+       display: block;
+       font-size: 13px;
+       font-weight: bold;
+       padding: 6px 20px 8px;
+       white-space: nowrap;
+       color: #3B5998;
+       cursor: pointer;
+       text-decoration: none;
+}
+#tabs_container1 .tabs1 li.selected1 a{
+       color: #333;
+       font-size: 13px;
+       padding: 6px 20px 8px;
+}
+.tab_inner_img_selected1{
+    float:left;
+    padding-left:10px;
+    padding-right:4px;
+    padding-bottom:4px;
+    padding-top:8px;
+    }
+.tab_inner_img_unselected1{
+    float:left;
+    padding-left:10px;
+    padding-right:5px;
+    padding-bottom:3px;
+    padding-top:8px;
+    }
+.delete_data{
+    float:left;
+    padding-top:5px;
+}
+.comments{
+    padding-top:20px;
+    padding-bottom:10px;
+    float:left;
+    width:520px;
+    }
+
+.fbcommnts{
+       margin-top: 10px;float:left;width:520px
+   }
+
+   .above_tabs_congrdulations{
+       padding-top: 15px; float: left;
+     background-color: #FFF9D7;
+       padding: 5px;
+       width: 498px;
+       margin-bottom:10px;
+   }
+
+   .wallkit_title {
+    font-size: 14px !important;
+    font-weight: normal !important;
+    padding-bottom:5px;
+}
+
+#invite{
+     margin-left: 15px;
+     margin-top: 15px;
+}
+
+  .fbtab
+  {
+      padding: 4px;
+      background-color:#3b5998;
+      color:#ffffff;
+      font-weight: bold;
+      float: left;
+      text-decoration: none;
+  }
+
+  .redeem{
+      clear:both;
+  }
+
+  .prepayments{
+      color: #666666;
+    font-size: 16px;
+    font-weight: normal;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-top: 10px;
+  }
