@@ -1,11 +1,18 @@
 <h3>
   <%= pagetitle %>
 </h3>
-<h4>Deal title : <%= link_to(inactive.title,:controller => "Deals",:action => "get_deal_details", :deal_id => inactive._id) -%></h4>
-    Deal description : <%= inactive.description%>
+<h4>Deal title : <%= link_to(inactive['deal'].title,:controller => "Deals",:action => "get_deal_details", :deal_id => inactive['deal']._id) -%></h4>
+    Deal description : <%= inactive['deal'].description%>
 </br>
-   Deal end time  :    <%= inactive.end_time %>
+   Deal end time  :    <%= inactive['deal'].end_time %>
 </br>
-    Fine Print  :      <%= inactive.fine_print %>
+    Fine Print  :      <%= inactive['deal'].fine_print %>
 </br>
-</br>
+    FreeToUse        : <%= inactive['coupon'].FreeToUse%>
+<br/>
+    Downloaded       : <%= inactive['coupon'].Downloaded %>
+<br/>
+    Redeemed         : <%= inactive['coupon'].Redeemed %>
+<br/>
+    Total            : <%= inactive['coupon'].total %>
+<br/>

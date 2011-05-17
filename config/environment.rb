@@ -4,5 +4,4 @@ APP_CONFIG = YAML::load(File.read(RAILS_ROOT + "/config/twitter.yml"))[Rails.env
 # Initialize the rails application
 Mongo::Application.initialize!
 
-
-
+require 'will_paginate'

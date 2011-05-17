@@ -106,6 +106,7 @@ GEM
       rash (~> 0.3.0)
       simple_oauth (~> 0.1.4)
     tzinfo (0.3.26)
+    will_paginate (3.0.pre2)
 
 PLATFORMS
   x86-mingw32
@@ -117,3 +118,4 @@ DEPENDENCIES
   rails (= 3.0.6)
   ruby-debug
   twitter
+  will_paginate (~> 3.0.pre2)

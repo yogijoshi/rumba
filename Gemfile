@@ -14,6 +14,7 @@ gem 'koala'
 gem 'ruby-debug'
 gem 'twitter'
 gem 'oauth', '~> 0.4.4'
+gem "will_paginate", "~> 3.0.pre2"
 
 if defined?(BSON_C)
   warn 'YAY'

@@ -26,18 +26,26 @@ InActive
 <%= link_to("Go Back",:action => "relatedstores") -%>
 <h3>All active deals of  
 <%= @current_store.store_name %></h3>
-<% if @activedeals_of_store.size != 0 %>
+<% if @activedeals_coupons.size != 0 %>
 
-<%= render :partial => "deals/active", :collection => @activedeals_of_store, :item => :active,
+<%= render :partial => "deals/active", :collection => @activedeals_coupons_p, :item => :active,
            :locals => {:pagetitle => "Active deal's details"} %>
 <% else %>
 Sorry..No Active deals at this time..
 <% end %>
+<% if @activedeals_coupons_p %>
+  <%= will_paginate @activedeals_coupons_p %>
+<% end %>
+
+
 <h3>All InActive deals of
 <%= @current_store.store_name %></h3>
-<% if @inactivedeals_of_store.size != 0 %>
-<%= render :partial => "deals/inactive", :collection => @inactivedeals_of_store, :item => :inactive,
+<% if @inactivedeals_coupons.size != 0 %>
+<%= render :partial => "deals/inactive", :collection => @inactivedeals_coupons_p, :item => :inactive,
            :locals => {:pagetitle => "Inactive deal's details"} %>
 <% else %>
 No inactive deals for this store
+<% end %>
+<% if @inactivedeals_coupons_p %>
+<%= will_paginate @inactivedeals_coupons_p %>
 <% end %>
