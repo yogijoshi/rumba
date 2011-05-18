@@ -16,3 +16,204 @@
 <br/>
     Total            : <%= inactive['coupon'].total %>
 <br/>
+<%= stylesheet_link_tag 'style.css', :media => 'screen' %>
+<% @image_path = '/images/images/'
+%>
+
+<!--<input type="button" onclick="rohan();" value="clickme"/>-->
+     <!-- main coupons container and posts start-->
+    <div class="main_coupan_container_and_posts" id="<%=inactive['deal']._id %>_discountcoupon">
+        <div class="main_coupon_container">
+            <div class="main_coupon_container_left_border">
+            <div class="main_coupon_container_top_border"><img src="<%= @image_path %>border_horizontal.png" width="500px" height="1px"></div>
+
+            <div class="main_coupan_container_left">
+            <div class="cevoupon_img_new">
+                <div class="coupon_img_new_corner"><img src="<%= @image_path %>corner.png" /></div>
+
+                <div class="coupon_img"><a href="#"><img title="Click on the image for preview." id="<%=inactive['deal']._id %>_dealimage" width="75" height="75" onclick="showimage('<%=inactive['deal'].image %>')" src="<%=inactive['deal'].image %>"></a></div>
+                <input type="hidden" id="<%=inactive['deal']._id%>_dealimagejson" value="<%=inactive['deal'].image%>"/>
+            </div>
+           <div id="<%=inactive['deal']._id%>_tc" class="fb_15_15_text blue"><a href="#" onclick="tandc('<%=inactive['deal']._id%>');" class="blue">Terms &amp; Conditions</a></div>
+            </div>
+
+            <div class="discount_detail_main">
+                    <div class="main_title"><a href="#" class="gray bold"><%=inactive['deal'].title%></a>
+                    <input type="hidden" id="<%=inactive['deal']._id%>_dealtitle" value="<%=inactive['deal'].title%>"/>
+                    <span id="<%=inactive['deal']._id%>_more" class="more_detail"><a class="bold gray" href="#" clicktoshow="<%=inactive['deal']._id%>_description,<%=inactive['deal']._id%>_less" clicktohide="<%=inactive['deal']._id%>_more" style="text-decoration:underline;">more</a></span>
+                    <span id="<%=inactive['deal']._id%>_less" class="more_detail" style="display:none;"><a class="bold gray" href="#" clicktoshow="<%=inactive['deal']._id%>_more" clicktohide="<%=inactive['deal']._id%>_less,<%=inactive['deal']._id%>_description" style="text-decoration:underline;">less</a></span>
+                    </div>
+
+
+                    <div class="discount_detail gray" id="<%=inactive['deal']._id%>_description" style="display:none;"><%=inactive['deal'].description%></div>
+                    <input type="hidden" id="<%=inactive['deal']._id%>_description1" value="<%=inactive['deal'].description%>"/>
+                    <div class="expire_and_location" style="padding-top:3px;">
+<%
+
+
+  case inactive['deal'].coupon_type
+   when "X_LC_X" then
+
+%>
+        <div class="couponsleft"><span class="expire_title grey">Coupons:&nbsp;</span><span id="couponsleft" class="expire_text gray"><%= inactive['coupon'].FreeToUse %>left</span></div>
+<%
+
+    when "X_LC_TB" then
+
+%>
+        <div class="couponsleft"><span class="expire_title grey">Coupons:&nbsp;</span><span id="couponsleft" class="expire_text gray"><%= inactive['coupon'].FreeToUse %>left</span></div>
+<%
+else
+
+end%>
+<?
+//TODO:Special Hack for Doolally...<< remove this and replace with better solution.
+if($store[0]['shortcode']=="002"){
+?>
+        <div class="expire"><span class="expire_title grey">Deal Valid on:&nbsp;</span><span class="expire_text gray">Mar 12 (1 pm- 6.30 pm)</span></div>
+<?
+}else{
+?>
+        <div class="expire"><span class="expire_title grey">Deal Valid Till:&nbsp;</span><span class="expire_text gray"><%= inactive['deal'].end_time %></span></div>
+<?
+}
+                break;
+            }
+        case "X_UC_TB" :
+            {
+?>
+        <div class="expire"><span class="expire_title grey">Deal Valid Till:&nbsp;</span><span class="expire_text gray"><%= inactive['deal'].end_time %></span></div>
+<?
+                break;
+            }
+        case "RL_LC_TB" :
+            {
+?>
+        <div class="couponsleft"><span class="expire_title grey">Coupons:&nbsp;</span><span id="couponsleft" class="expire_text gray"><%= inactive['coupon'].FreeToUse %>left</span></div>
+        <div class="redeem"><span class="expire_title grey">Redeem Limit:&nbsp;</span><span class="expire_text gray">Offer Valid to first <%= inactive['deal'].redeem_limit %> only</span></div>
+        <div class="expire"><span class="expire_title grey">Deal Valid Till:&nbsp;</span><span class="expire_text gray"><%= inactive['deal'].end_time %></span></div>
+<?
+                break;
+            }
+
+        case "RL_UC_TB" :
+            {
+?>
+        <div class="redeem"><span class="expire_title grey">Redeem Limit:&nbsp;</span><span class="expire_text gray">Offer Valid to first <%= inactive['deal'].redeem_limit %> only</span></div>
+        <div class="expire"><span class="expire_title grey">Deal Valid Till:&nbsp;</span><span class="expire_text gray"><%= inactive['deal'].end_time %></span></div>
+<?
+                break;
+            }
+
+        case "RL_LC_X" :
+            {
+?>
+        <div class="couponsleft"><span class="expire_title grey">Coupons:&nbsp;</span><span id="couponsleft" class="expire_text gray"><%= inactive['coupon'].FreeToUse %>left</span></div>
+        <div class="redeem"><span class="expire_title grey">Redeem Limit:&nbsp;</span><span class="expire_text gray">Offer Valid to first <%= inactive['deal'].redeem_limit %> only</span></div>
+<?
+                break;
+            }
+
+        case "RL_UC_X" :
+            {
+?>
+        <div class="redeem"><span class="expire_title grey">Redeem Limit:&nbsp;</span><span class="expire_text gray">Offer Valid to first <%= inactive['deal'].redeem_limit %> only</span></div>
+<?
+                break;
+            }
+    }
+
+    if(isset($store[0]['branch']) && $store[0]['branch']!=""){
+?>
+            <div class="location1"><span class="expire_title grey">Location:&nbsp;</span><span class="expire_text gray"><?php echo $store[0]['branch'];?></span></div>
+<?
+    }
+?>
+                    <!--    <div class="location"><span class="location_title blue">Location:&nbsp;</span>
+                        <span class="location_text gray"><?php echo $store[0]['address1']."\n". $store[0]['address2']; ?></span></div>-->
+                    </div>
+
+
+
+                    <div class="pdt5px left" style="padding-top:13px;"><span class="fbicon"></span>
+                        <span class="left blue f_size12"><a href="#" onclick="streampublish('<%=inactive['deal']._id%>')">Share Deal</a></span> <span class="fblike"></span><span id="<%=inactive['deal']._id%>_liketext" class="left blue f_size12"><a href="#" onclick="like('<%=inactive['deal']._id%>')">Like this deal</a></span>
+                    </div>
+            </div>
+
+
+                <!--start-->
+                <div class="innerwrapshow">
+
+
+
+                    <div id="<%=inactive['deal']._id%>_navdetail" class="innerwrap">
+                     <span class="or2 gray bold">Download Deal:</span>
+                    <div id="tabs_container">
+                         <div class="popup_tabs_container_margin">
+                             <ul class="tabs">
+                                   <li id="<%=inactive['deal']._id%>_smsnav" class="selected"><span class="tab_inner_img_selected"><img src= "<%=@image_path%>sms.png" /></span><a clicktoshow="<%=inactive['deal']._id%>_popup_sms_details" clicktohide="<%=inactive['deal']._id%>_popup_email_details" href="#" onclick="enablesms('<%=inactive['deal']._id%>');">sms</a></li>
+                                   <li id="<%=inactive['deal']._id%>_emailnav" class=""><span class="tab_inner_img_unselected"><img src= "<%@image_path%>mail.png" /></span><a clicktoshow="<%=inactive['deal']._id%>_popup_email_details" clicktohide="<%=inactive['deal']._id%>_popup_sms_details" href="#" onclick="enableemail('<%=inactive['deal']._id%>');">email</a></li>
+                              </ul>
+                          </div>
+                    </div>
+                     <div id="<%=inactive['deal']._id%>_popup_sms_details" class="popup_sms_details">
+                                    <div class="popup_sms_email_detail_bg">
+                                    <div class="popup_enter_text_for_what">
+                                    <input id="<%=inactive['deal']._id%>_sms_input" name="text" onblur="fillbox('<%=inactive['deal']._id%>','sms')" onfocus="emptybox('<%=inactive['deal']._id%>','sms');enablesms('<%=inactive['deal']._id%>');" class="popup_input_box_sms default_value" size="37" type="text" value="Enter Your Mobile Number here..."></div>
+                                   <div class="popup_get_discount_squre_button"><span class="popup_get_discount_squre_button_text"><a href="#" onclick="getdiscount('<%=inactive['deal']._id%>','sms')">Get Deal</a></span></div>
+                                   </div>
+                      </div>
+
+                      <div id="<%=inactive['deal']._id%>_popup_email_details" class="popup_email_details" style="display:none;">
+                                    <div class="popup_sms_email_detail_bg">
+                                    <div class="popup_enter_text_for_what">
+                                    <input id="<%=inactive['deal']._id%>_email_input" name="text" onclick="emptybox('<%=inactive['deal']._id%>','email')" class="popup_input_box_email default_value" size="37" type="text" value=""></div>
+                                   <div class="popup_get_discount_squre_button"><span class="popup_get_discount_squre_button_text"><a href="#" onclick="getdiscount('<%=inactive['deal']._id%>','email')">Get Deal</a></span></div>
+                                   </div>
+                      </div>
+
+                      </div>
+                  </div>
+                   <!--end-->
+                <!--popup_sms_details end
+                <input type="hidden" value="0" id="<%=inactive['deal']._id%>_view" />
+
+                <div class="friend_how_used" style="margin-left:15px; display:block;">
+                <div class="fb_friends_photo" id="<%=inactive['deal']._id%>_fb_friends_photo">
+
+<%#*<?php%>
+    <%#*if (isset ($deals[$i]['couponsDownloadedBy'])) {%>
+<%#*?>%>
+<%#*<?php%>
+
+
+        <%#*for ($cnt = 0; $cnt < count($deals[$i]['couponsDownloadedBy']); $cnt++) {%>
+            <%#*if (isset ($deals[$i]['couponsDownloadedBy'][$cnt]) && strlen($deals[$i]['couponsDownloadedBy'][$cnt]) > 1) {%>
+<%#*?>%>
+                   <%#*<!--    <img src="http://graph.facebook.com/<?php echo $deals[$i]['couponsDownloadedBy'][$cnt];?>/picture/?type=square" style="width: 25px; height: 25px;"> -->%>
+                   <%#*<fb:profile-pic width="25px" height="25px" useyou="false" uid="<?php echo $deals[$i]['couponsDownloadedBy'][$cnt];?>"/>%>
+<%#*<?php%>
+            <%#*}%>
+        <%#*}%>
+<%#*?>%>
+<%#*<?php%>
+
+        <%#*$message = "recently got this deal!";%>
+    <%#*} else {%>
+        <%#*$message = "Be the First One to Claim this coupon! Download Now!";%>
+    <%#*}%>
+<%#*?>%>
+                </div>
+                </div>
+<div id="<%=inactive['deal']._id%>_lower_text" style="padding-left:15px;" class="msg_text_for_friends smsgray"><?php echo $message;?></div>
+
+            </div>
+            -->
+
+            <div class="main_coupon_container_bottom_border"><img src="<%=@image_path%>border_horizontal.png" width="500px" height="1"></div>
+        </div>
+    </div>
+
+
+<div class="clearfix"></div>
+<!-- main coupons container and posts end-->
