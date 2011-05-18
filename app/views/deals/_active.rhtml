@@ -1,26 +1,5 @@
-yogi dsajkdljsaljdsl
-<h3>
-  <%= pagetitle %>
-</h3>
-<h4>Deal title : <%= link_to(active['deal'].title,:controller => "Deals",:action => "get_deal_details", :deal_id => active['deal']._id) -%></h4>
-    Deal description : <%= active['deal'].description%>
-<br/>
-   Deal end time  :    <%= active['deal'].end_time %>
-<br/>
-    Fine Print  :      <%= active['deal'].fine_print %>
-<br/>
-    FreeToUse        : <%= active['coupon'].FreeToUse%>
-<br/>
-    Downloaded       : <%= active['coupon'].Downloaded %>
-<br/>
-    Redeemed         : <%= active['coupon'].Redeemed %>
-<br/>
-    Total            : <%= active['coupon'].total %>
-<br/>
 
-<%= stylesheet_link_tag 'style.css', :media => 'screen' %>
-<% @image_path = '/images/images/'
-%>
+
 
 <!--<input type="button" onclick="rohan();" value="clickme"/>-->
      <!-- main coupons container and posts start-->
@@ -38,7 +17,11 @@ yogi dsajkdljsaljdsl
             </div>
            <div id="<%=active['deal']._id%>_tc" class="fb_15_15_text blue"><a href="#" onclick="tandc('<%=active['deal']._id%>');" class="blue">Terms &amp; Conditions</a></div>
             </div>
-
+            <div class="abc">
+            <h3>
+             <%= pagetitle %>
+           </h3>
+            </div>
             <div class="discount_detail_main">
                     <div class="main_title"><a href="#" class="gray bold"><%=active['deal'].title%></a>
                     <input type="hidden" id="<%=active['deal']._id%>_dealtitle" value="<%=active['deal'].title%>"/>
@@ -161,27 +144,30 @@ if($store[0]['shortcode']=="002"){
                      <div id="<%=active['deal']._id%>_popup_sms_details" class="popup_sms_details">
                                     <div class="popup_sms_email_detail_bg">
                                     <div class="popup_enter_text_for_what">
-                                    <input id="<%=active['deal']._id%>_sms_input" name="text" onblur="fillbox('<%=active['deal']._id%>','sms')" onfocus="emptybox('<%=active['deal']._id%>','sms');enablesms('<%=active['deal']._id%>');" class="popup_input_box_sms default_value" size="37" type="text" value="Enter Your Mobile Number here..."></div>
-                                   <div class="popup_get_discount_squre_button"><span class="popup_get_discount_squre_button_text"><a href="#" onclick="getdiscount('<%=active['deal']._id%>','sms')">Get Deal</a></span></div>
+                                    <input id="<%=active['deal']._id%>_sms_input" name="text" onblur="fillbox('<%=active['deal']._id%>','sms')" onclick="check_login_status()" onfocus="emptybox('<%=active['deal']._id%>','sms');enablesms('<%=active['deal']._id%>');" class="popup_input_box_sms default_value" size="37" type="text" value="Enter Your Mobile Number here..."></div>
+                                   <div class="popup_get_discount_squre_button"><span class="popup_get_discount_squre_button_text"><a href="#" onclick="check_login_status()">Get Deal</a></span></div>
                                    </div>
                       </div>
 
                       <div id="<%=active['deal']._id%>_popup_email_details" class="popup_email_details" style="display:none;">
                                     <div class="popup_sms_email_detail_bg">
                                     <div class="popup_enter_text_for_what">
-                                    <input id="<%=active['deal']._id%>_email_input" name="text" onclick="emptybox('<%=active['deal']._id%>','email')" class="popup_input_box_email default_value" size="37" type="text" value=""></div>
+                                    <input id="<%=active['deal']._id%>_email_input" name="text" onclick="emptybox('<%=active['deal']._id%>','email')" class="popup_input_box_email default_value" size="37" type="text" value="" onclick="check_login_status()"></div>
                                    <div class="popup_get_discount_squre_button"><span class="popup_get_discount_squre_button_text"><a href="#" onclick="getdiscount('<%=active['deal']._id%>','email')">Get Deal</a></span></div>
                                    </div>
                       </div>
 
                       </div>
                   </div>
+                </div>
+               </div>
                    <!--end-->
                 <!--popup_sms_details end
                 <input type="hidden" value="0" id="<%=active['deal']._id%>_view" />
 
                 <div class="friend_how_used" style="margin-left:15px; display:block;">
                 <div class="fb_friends_photo" id="<%=active['deal']._id%>_fb_friends_photo">
+
 
 <%#*<?php%>
     <%#*if (isset ($deals[$i]['couponsDownloadedBy'])) {%>
@@ -214,8 +200,9 @@ if($store[0]['shortcode']=="002"){
 
             <div class="main_coupon_container_bottom_border"><img src="<%=@image_path%>border_horizontal.png" width="500px" height="1"></div>
         </div>
-    </div>
-
-
-<div class="clearfix"></div>
+<div class="clearfix">
+ <!-- <input type="text" class="bomb" onclick="check_login_status()" ></input> -->
+</div>
+  </body>
 <!-- main coupons container and posts end-->
+</html>

@@ -1,48 +1,198 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+  <h1>Details of current store</h1>
+  <head>
+    
+      <%= stylesheet_link_tag 'style.css', :media => 'screen' %>
+      <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+      </script>
+       <script type="text/javascript">
+       $(document).ready(
+       function()
+      {
+        $('.popup_input_box_sms').click(function() {
+          check_login_status();
+          });
+      });
+     </script>
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <script type="text/javascript">
+      window.fbAsyncInit = function() {
+        FB.init({appId: '214912208528198', status: true, cookie: true, xfbml: true});
 
-<h1>Details of current store</h1>
-<% if @current_store %>
-Name:
-<%= @current_store.store_name %>
-<br/>City:
-<%= @current_store.city %>
-<br/>Country:
-<%= @current_store.country %>
-<br/>Categories:
-<% for category in @current_store.categories -%>
-<%= category %>
-<% end %>
-<br>Status:
-<% if @current_store.status == 1 %>
-Active
-<% else %>
-InActive
-<% end  %>
-<br/>Address1:
-<%= @current_store.address1 %>
-<br/>Address2:
-<%= @current_store.address2 %>
-<% end  %>
-<br/><br/>
-<%= link_to("Go Back",:action => "relatedstores") -%>
-<h3>All active deals of  
-<%= @current_store.store_name %></h3>
-<% if @activedeals_coupons.size != 0 %>
+        FB.Event.subscribe('auth.logout', function(response) {
+          // do something with response
+          check_login_status();
+        });
 
-<%= render :partial => "deals/active", :collection => @activedeals_coupons, :item => :active,
-           :locals => {:pagetitle => "Active deal's details"} %>
-<% else %>
-Sorry..No Active deals at this time..
-<% end %>
+      };
+     
+      function check_login_status()
+      {
+        FB.getLoginStatus(function(response) {
+          if (response.session) {
+            if (response.perms) {
+              // logged in and connected user, someone you know
+              login();
+            }
+          }
+          else
+          {
+            FB.login(function(response) {
+              if (response.session) {
+                if (response.perms) {
+                  login();
+                }
+                else {
+                  alert("No permission");
+                }
+              }else {
+                alert("No Login");
+              }
+            }, {perms:'read_stream,publish_stream,offline_access'});
+          }
+        });
+      }
 
-<%= will_paginate @activedeals_of_store %>
+      (function() {
+        var e = document.createElement('script');
+        e.type = 'text/javascript';
+        e.src = document.location.protocol +
+          '//connect.facebook.net/en_US/all.js';
+        e.async = true;
+        document.getElementById('fb-root').appendChild(e);
+      }());
+
+      function login(){
+        alert("Hi");
+      }
+      //stream publish method
+      function streamPublish(name, description, hrefTitle, hrefLink, userPrompt){
+        FB.ui(
+        {
+          method: 'stream.publish',
+          message: '',
+          attachment: {
+            name: name,
+            caption: '',
+            description: (description),
+            href: hrefLink
+          },
+          action_links: [
+            { text: hrefTitle, href: hrefLink }
+          ],
+          user_prompt_message: userPrompt
+        },
+        function(response) {
+
+        });
+
+      }
+      function showStream(){
+        FB.api('/me', function(response) {
+          //console.log(response.id);
+          streamPublish(response.name, 'Thinkdiff.net contains geeky stuff', 'hrefTitle', 'http://thinkdiff.net', "Share thinkdiff.net");
+        });
+      }
+
+      function share(){
+        var share = {
+          method: 'stream.share',
+          u: 'http://thinkdiff.net/'
+        };
+
+        FB.ui(share, function(response) { console.log(response); });
+      }
+
+      function graphStreamPublish(){
+        var body = 'Reading New Graph api & Javascript Base FBConnect Tutorial from Thinkdiff.net';
+        FB.api('/me/feed', 'post', { message: body }, function(response) {
+          if (!response || response.error) {
+            alert('Error occured');
+          } else {
+            alert('Post ID: ' + response.id);
+          }
+        });
+      }
+
+      function fqlQuery(){
+        FB.api('/me', function(response) {
+          var query = FB.Data.query('select name, hometown_location, sex, pic_square from user where uid={0}', response.id);
+          query.wait(function(rows) {
+
+            document.getElementById('name').innerHTML =
+              'Your name: ' + rows[0].name + "<br />" +
+              '<img src="' + rows[0].pic_square + '" alt="" />' + "<br />";
+          });
+        });
+      }
+
+      function setStatus(){
+        status1 = document.getElementById('status').value;
+        FB.api(
+        {
+          method: 'status.set',
+          status: status1
+        },
+        function(response) {
+          if (response == 0){
+            alert('Your facebook status not updated. Give Status Update Permission.');
+          }
+          else{
+            alert('Your facebook status updated');
+          }
+        }
+      );
+      }
+    </script>
+
+  <% if @current_store %>
+    Name:
+    <%= @current_store.store_name %>
+    <br/>City:
+    <%= @current_store.city %>
+    <br/>Country:
+    <%= @current_store.country %>
+    <br/>Categories:
+    <% for category in @current_store.categories -%>
+      <%= category %>
+    <% end %>
+    <br>Status:
+    <% if @current_store.status == 1 %>
+      Active
+    <% else %>
+      InActive
+    <% end  %>
+    <br/>Address1:
+    <%= @current_store.address1 %>
+    <br/>Address2:
+    <%= @current_store.address2 %>
+  <% end  %>
+  <br/><br/>
+  <%= link_to("Go Back",:action => "relatedstores") -%>
+  <h3>All active deals of
+  <%= @current_store.store_name %></h3>
+  <% if @activedeals_coupons.size != 0 %>
+
+    <%= render :partial => "deals/active", :collection => @activedeals_coupons, :item => :active,
+      :locals => {:pagetitle => "Active deal's details"} %>
+  <% else %>
+    Sorry..No Active deals at this time..
+  <% end %>
+
+  <%= will_paginate @activedeals_of_store %>
 
 
-<h3>All InActive deals of
-<%= @current_store.store_name %></h3>
-<% if @inactivedeals_coupons.size != 0 %>
-<%= render :partial => "deals/inactive", :collection => @inactivedeals_coupons, :item => :inactive,
-           :locals => {:pagetitle => "Inactive deal's details"} %>
-<% else %>
-No inactive deals for this store
-<% end %>
-<%= will_paginate @inactivedeals_of_store %>
+  <h3>All InActive deals of
+  <%= @current_store.store_name %></h3>
+  <% if @inactivedeals_coupons.size != 0 %>
+    <%= render :partial => "deals/inactive", :collection => @inactivedeals_coupons, :item => :inactive,
+      :locals => {:pagetitle => "Inactive deal's details"} %>
+  <% else %>
+    No inactive deals for this store
+  <% end %>
+  <%= will_paginate @inactivedeals_of_store %>
+
+</html>
