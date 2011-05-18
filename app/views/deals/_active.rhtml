@@ -1,4 +1,7 @@
 <%= stylesheet_link_tag 'style.css', :media => 'screen' %>
+
+
+
 <% @image_path = '/images/images/'%>
 <!-- main coupons container and posts start-->
 <div class="main_coupan_container_and_posts" id="<%=active['deal']._id %>_discountcoupon">
@@ -7,7 +10,6 @@
     <div class="main_coupon_container_top_border">
       <img src="<%= @image_path %>border_horizontal.png" width="500px" height="1px">
     </div>
-
     <div class="main_coupan_container_left">
       <div class="cevoupon_img_new">
         <div class="coupon_img_new_corner"><img src="<%= @image_path %>corner.png" /></div>
