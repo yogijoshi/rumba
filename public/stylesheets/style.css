@@ -110,7 +110,7 @@ a {
 }
 
 .main_coupon_container_left_border {
-    background: url('<?php echo $this->config->item('images_path'); ?>dotted-border_vertical_dual1.png') repeat-y;
+    background: url('/images/images/dotted-border_vertical_dual1.png') repeat-y;
     height: auto;
     width: 500px;
     float: left;
@@ -122,13 +122,13 @@ a {
 
 .seperator {
     float: left;
-    background: url('<?php echo $this->config->item('images_path'); ?>seperator_h.png') repeat-x;
+    background: url('/images/images/seperator_h.png') repeat-x;
     width: 520px;
     height: 2px;
 }
 
 .coupon_img_new {
-    background:url('<?php echo $this->config->item('images_path'); ?>standard_bg.png') no-repeat;
+    background:url('/images/images/standard_bg.png') no-repeat;
     width: 160px;
     height: 100px;
     float: left;
@@ -356,7 +356,7 @@ margin-left:7px;
     }
 
 .popup_input_box_sms {
-    background: url('<?php echo $this->config->item('images_path'); ?>sms.png') no-repeat scroll 5px center #FFFFFF;
+    background: url('/images/images/sms.png') no-repeat scroll 5px center #FFFFFF;
     color: #666666;
        font-family: "tahoma", verdana, arial, sans-serif;
     font-size: 12px;
@@ -371,7 +371,7 @@ margin-left:7px;
 }
 
 .popup_input_box_email{
-    background: url('<?php echo $this->config->item('images_path'); ?>mail.png') no-repeat scroll 5px center #FFFFFF;
+    background: url('/images/images/mail.png') no-repeat scroll 5px center #FFFFFF;
     color: #666666;
        font-family: "tahoma", verdana, arial, sans-serif;
     font-size: 12px;
@@ -389,7 +389,7 @@ margin-left:7px;
     float:right;
     margin-right:42px;
     margin-top:10px;
-    background:url('<?php echo $this->config->item('images_path'); ?>submit4.png');
+    background:url('/images/images/submit4.png');
     height:28px;
     width:82px;
     }
@@ -517,7 +517,7 @@ margin-left:7px;
     font-family: "tahoma", verdana, arial, sans-serif;
 }
 .fbicon {
-    background-image: url('<?php echo $this->config->item('images_path'); ?>fbicon.png');
+    background-image: url('/images/images/fbicon.png');
     background-repeat: no-repeat;
     background-position: left top;
     display: inline-block;
@@ -527,7 +527,7 @@ margin-left:7px;
     padding-right: 5px;
 }
 .fblike {
-    background-image: url('<?php echo $this->config->item('images_path'); ?>fblikeicon.png');
+    background-image: url('/images/images/fblikeicon.png');
     background-repeat: no-repeat;
     background-position: left top;
     display: inline-block;
@@ -538,7 +538,7 @@ margin-left:7px;
     padding-right: 5px;
 }
 .getdiscount {
-    background-image: url('<?php echo $this->config->item('images_path'); ?>getdiscount.png');
+    background-image: url('/images/images/getdiscount.png');
     background-position: left top;
     background-repeat: no-repeat;
     display: block;
@@ -572,7 +572,7 @@ margin-left:7px;
 }
 
 .sms {
-    background-image: url('<?php echo $this->config->item('images_path'); ?>sms.png');
+    background-image: url('/images/images/sms.png');
     background-repeat: no-repeat;
     background-position: left top;
     display: block;
@@ -582,7 +582,7 @@ margin-left:7px;
     padding-right:2px;
 }
 .print {
-    background-image: url('<?php echo $this->config->item('images_path'); ?>print.png');
+    background-image: url('/images/images/print.png');
     background-repeat: no-repeat;
     background-position: left top;
     float: left;
@@ -592,7 +592,7 @@ margin-left:7px;
     padding-right:2px;
 }
 .emaildiv {
-    background-image: url('<?php echo $this->config->item('images_path'); ?>mail.png');
+    background-image: url('/images/images/mail.png');
     background-repeat: no-repeat;
     background-position: left top;
     float: left;
