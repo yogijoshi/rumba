@@ -1,16 +1,16 @@
 class Deals
 
   include MongoMapper::Document
-
-  def self.find_activedeals_by_store(store_id)
+  PAGINATOR = 2
+  def self.find_activedeals_by_store(store_id, pagination_options)
   
-  	deals =  Deals.where(:status => 'active', :store_id => store_id)
+  	deals =  Deals.where(:status => 'active', :store_id => store_id).paginate(pagination_options)
 
   end
   
-  def self.find_inactivedeals_by_store(store_id)
+  def self.find_inactivedeals_by_store(store_id,pagination_options)
   
-  	deals =  Deals.where(:status => 'over', :store_id => store_id)
+  	deals =  Deals.where(:status => 'over', :store_id => store_id).paginate(pagination_options)
 
   end
   

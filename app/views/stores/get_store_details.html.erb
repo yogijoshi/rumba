@@ -3,49 +3,46 @@
 <% if @current_store %>
 Name:
 <%= @current_store.store_name %>
-</br>City:
+<br/>City:
 <%= @current_store.city %>
-</br>Country:
+<br/>Country:
 <%= @current_store.country %>
-</br>Categories:
+<br/>Categories:
 <% for category in @current_store.categories -%>
 <%= category %>
 <% end %>
-</br>Status:
+<br>Status:
 <% if @current_store.status == 1 %>
 Active
 <% else %>
 InActive
 <% end  %>
-</br>Address1:
+<br/>Address1:
 <%= @current_store.address1 %>
-</br>Address2:
+<br/>Address2:
 <%= @current_store.address2 %>
 <% end  %>
-</br></br>
+<br/><br/>
 <%= link_to("Go Back",:action => "relatedstores") -%>
 <h3>All active deals of  
 <%= @current_store.store_name %></h3>
 <% if @activedeals_coupons.size != 0 %>
 
-<%= render :partial => "deals/active", :collection => @activedeals_coupons_p, :item => :active,
+<%= render :partial => "deals/active", :collection => @activedeals_coupons, :item => :active,
            :locals => {:pagetitle => "Active deal's details"} %>
 <% else %>
 Sorry..No Active deals at this time..
 <% end %>
-<% if @activedeals_coupons_p %>
-  <%= will_paginate @activedeals_coupons_p %>
-<% end %>
+
+<%= will_paginate @activedeals_of_store %>
 
 
 <h3>All InActive deals of
 <%= @current_store.store_name %></h3>
 <% if @inactivedeals_coupons.size != 0 %>
-<%= render :partial => "deals/inactive", :collection => @inactivedeals_coupons_p, :item => :inactive,
+<%= render :partial => "deals/inactive", :collection => @inactivedeals_coupons, :item => :inactive,
            :locals => {:pagetitle => "Inactive deal's details"} %>
 <% else %>
 No inactive deals for this store
 <% end %>
-<% if @inactivedeals_coupons_p %>
-<%= will_paginate @inactivedeals_coupons_p %>
-<% end %>
+<%= will_paginate @inactivedeals_of_store %>
