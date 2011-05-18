@@ -1,3 +1,5 @@
+
+http://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_css_change_p
 == MongoDB Rails 3 App Skeleton
 
 This is just a sample app skeleton for an application with Rails 3, MongoDB, and MongoMapper.
