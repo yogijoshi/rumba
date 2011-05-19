@@ -52,7 +52,7 @@ class Dealtadkauser
     dealtadkauser.save!
   end
   def self.find_by_uid(uid)
-    if Dealtadkauser.where(:fbid => uid).to_a != nil
+    if Dealtadkauser.where(:fbid => uid).to_a.size != 0
       return true
     end
     return false
