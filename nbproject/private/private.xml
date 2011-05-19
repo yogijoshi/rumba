@@ -1,27 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/C:/rails_project/rumba/rumba/app/controllers/application_controller.rb</file>
-        <file>file:/C:/rails_project/rumba/rumba/app/controllers/deals_controller.rb</file>
-        <file>file:/C:/rails_project/rumba/rumba/app/controllers/facebookinfo_controller.rb</file>
-        <file>file:/C:/rails_project/rumba/rumba/app/controllers/fbconnect_controller.rb</file>
-        <file>file:/C:/rails_project/rumba/rumba/app/controllers/login_controller.rb</file>
-        <file>file:/C:/rails_project/rumba/rumba/app/controllers/stores_controller.rb</file>
-        <file>file:/C:/rails_project/rumba/rumba/app/models/deals.rb</file>
-        <file>file:/C:/rails_project/rumba/rumba/app/views/deals/_active.rhtml</file>
-        <file>file:/C:/rails_project/rumba/rumba/app/views/deals/_inactive.rhtml</file>
-        <file>file:/C:/rails_project/rumba/rumba/app/views/deals/get_deal_details.html.erb</file>
-        <file>file:/C:/rails_project/rumba/rumba/app/views/facebookinfo/_likes.rhtml</file>
-        <file>file:/C:/rails_project/rumba/rumba/app/views/facebookinfo/index.html.erb</file>
-        <file>file:/C:/rails_project/rumba/rumba/app/views/facebookinfo/login.html.erb</file>
-        <file>file:/C:/rails_project/rumba/rumba/app/views/fbconnect/index.html.erb</file>
-        <file>file:/C:/rails_project/rumba/rumba/app/views/fbconnect/indexjunk.html.erb</file>
-        <file>file:/C:/rails_project/rumba/rumba/app/views/stores/get_store_details.html.erb</file>
-        <file>file:/C:/rails_project/rumba/rumba/config/environment.rb</file>
-        <file>file:/C:/rails_project/rumba/rumba/config/facebook.yml</file>
-        <file>file:/C:/rails_project/rumba/rumba/config/initializers/koala.rb</file>
-        <file>file:/C:/rails_project/rumba/rumba/config/initializers/mongo.rb</file>
-        <file>file:/C:/rails_project/rumba/rumba/config/twitter.yml</file>
-    </open-files>
 </project-private>
