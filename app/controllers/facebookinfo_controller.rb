@@ -10,7 +10,8 @@ class FacebookinfoController < ApplicationController
   end
   def index
       graph = Koala::Facebook::GraphAPI.new(@facebook_cookies["access_token"])
-      @likes = graph.get_connections("me", "likes").to_a
+      #@likes = graph.get_connections("me", "likes").to_
+      @mehash = graph.get_object("me")
   end
   def login
   end
