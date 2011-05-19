@@ -35,7 +35,7 @@
           if (response.session) {
             if (response.perms) {
               // logged in and connected user, someone you know
-              location.href = "/"
+              window.location.href="facebookinfo/index";
             }
           }
           else
@@ -43,7 +43,7 @@
             FB.login(function(response) {
               if (response.session) {
                 if (response.perms) {
-                  login();
+                   window.location.href="/facebookinfo/index";
                 }
                 else {
                   alert("No permission");
@@ -51,7 +51,7 @@
               }else {
                 alert("No Login");
               }
-            }, {perms:'read_stream,publish_stream,offline_access'});
+            }, {perms:'user_birthday,email,user_location,read_stream,publish_stream,offline_access,manage_pages'});
           }
         });
       }
