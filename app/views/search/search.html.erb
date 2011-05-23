@@ -1,3 +1,14 @@
+Search Results
+
+<br/>
+<br/>
+<% if @dr.nil? %>
 
 
-<%= @result %>
+No Results found 
+
+<%  else %>
+      
+      <%= @dr.first.title %>
+
+<%  end %>

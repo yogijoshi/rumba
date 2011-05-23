@@ -47,6 +47,7 @@ class Deals
 
  def self.search_deal_name(query)
 
+     return Deals.where( :title => Regexp.new(query) )
    
  end
   
