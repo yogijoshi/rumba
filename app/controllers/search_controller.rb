@@ -2,8 +2,14 @@ class SearchController < ApplicationController
   
   def search
 
-   
-   
+   query = params[:q]
+
+    if query.length > 0
+
+      @result = Deals.search_deal_name(query)
+
+    end
+
   end
 
 
