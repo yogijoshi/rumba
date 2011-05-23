@@ -1,14 +1,22 @@
 Search Results
 
+
 <br/>
 <br/>
 <% if @dr.nil? %>
 
 
-No Results found 
+  No Results found
 
 <%  else %>
-      
-      <%= @dr.first.title %>
+  <% @dr.each  do |row|%>
 
-<%  end %>
+    <%= row.title %>
+
+   <br/>
+   Deal description : <%= row.description%>
+   <br/>
+   Deal end time  :  <%= row.end_time %>
+    <br/>
+<%end%>
+  <%  end %>

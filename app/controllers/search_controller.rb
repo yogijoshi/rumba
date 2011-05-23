@@ -6,14 +6,13 @@ class SearchController < ApplicationController
 
     if ! query.nil?
 
-      query = query.to_s
+      query ="^"+ query.to_s
       
       @dr = Deals.search_deal_name(query)
 
     end
-
-   
     
+       
   end
 
 
