@@ -1,4 +1,8 @@
 development:
-  hostname: localhost
-  database: tejas-test-development 
+  hostname: dbh10.mongolab.com
+  port: 27107/
+  database: dealtadka_live
+  authenticate: true
+  username: dealtadka
+  password: bpscqd38
 

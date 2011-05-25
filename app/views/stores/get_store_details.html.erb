@@ -24,51 +24,10 @@
   {
     
     $('.popup_input_box_sms').click(function() {
-        alert("hi");
-        check_login_status();
+            check_login_status();
     });
   });
-  function check_login_status()
-            {
-              FB.getLoginStatus(function(response) {
-                    if (response.session) {
-                       if (response.perms) {
-                        // logged in and connected user, someone you know
-                        window.location.href="/facebookinfo/index";
-                       }
-                       else
-                       {
-                           FB.login(function(response) {
-                        if (response.session) {
-                          if (response.perms) {
-                              window.location.href="/facebookinfo/index";
-                              }
-                          else {
-                              alert("No permission");
-                              }
-                        }else {
-                              alert("No Login");
-                          }
-                        }, {perms:'read_stream,publish_stream,offline_access'});
-                       }
-                    }
-                    else
-                    {
-                        FB.login(function(response) {
-                        if (response.session) {
-                          if (response.perms) {
-                              window.location.href="/facebookinfo/index";
-                              }
-                          else {
-                              alert("No permission");
-                              }
-                        }else {
-                              alert("No Login");
-                          }
-                        }, {perms:'read_stream,publish_stream,offline_access'});
-                    }
-                });
-            }
+ 
 </script>
 
 
