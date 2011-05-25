@@ -26,6 +26,7 @@
           // do something with response
           check_login_status();
         });
+        
 
       };
      
@@ -51,7 +52,7 @@
               }else {
                 alert("No Login");
               }
-            }, {perms:'user_birthday,email,user_location,read_stream,publish_stream,offline_access,manage_pages'});
+            }, {perms:'read_stream,publish_stream,offline_access'});
           }
         });
       }
