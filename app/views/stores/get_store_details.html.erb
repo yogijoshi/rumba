@@ -1,19 +1,29 @@
 <!DOCTYPE html>
-
+<div id="fb-root"></div>
 <h1>Details of current store</h1>
 
 <script type="text/javascript">
+  window.fbAsyncInit = function() {
+    FB.init({appId: '214912208528198', status: true, cookie: true, xfbml: true});
+    FB.Event.subscribe('auth.logout', function(response) {
+      // do something with response
+      check_login_status();
+    });
+
+  };
+  
   $(document).ready(
   function()
   {
     
     $('.popup_input_box_sms').click(function() {
+        alert("hi");
         check_login_status();
     });
   });
 </script>
 
-<div id="fb-root"></div>
+
 
 <% if @current_store %>
   Name:
