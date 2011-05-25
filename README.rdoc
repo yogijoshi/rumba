@@ -1,4 +1,3 @@
-
 http://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_css_change_p
 == MongoDB Rails 3 App Skeleton
 
@@ -19,3 +18,4 @@ rails console
 
 All of this assumes that you've installed Rails 3 and have a mongod process running.
 
+my name is sunny
