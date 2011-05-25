@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<div id="fb-root"></div>
-<h1>Details of current store</h1>
 
+
+<h1>Details of current store</h1>
+<div id="fb-root"></div>
 <script type="text/javascript">
   window.fbAsyncInit = function() {
     FB.init({appId: '214912208528198', status: true, cookie: true, xfbml: true});
@@ -21,6 +21,32 @@
         check_login_status();
     });
   });
+  function check_login_status()
+            {
+              FB.getLoginStatus(function(response) {
+                    if (response.session) {
+                       if (response.perms) {
+                        // logged in and connected user, someone you know
+                        login();
+                       }
+                    }
+                    else
+                    {
+                        FB.login(function(response) {
+                        if (response.session) {
+                          if (response.perms) {
+                              login();
+                              }
+                          else {
+                              alert("No permission");
+                              }
+                        }else {
+                              alert("No Login");
+                          }
+                        }, {perms:'read_stream,publish_stream,offline_access'});
+                    }
+                });
+            }
 </script>
 
 
