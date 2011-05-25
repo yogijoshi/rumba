@@ -2,8 +2,17 @@ class SearchController < ApplicationController
   
   def search
 
-   
-   
+   query = params[:q]  
+
+    if ! query.nil?
+
+      query ="^"+ query.to_s
+      
+      @dr = Deals.search_deal_name(query)
+
+    end
+    
+       
   end
 
 

@@ -1,8 +1,22 @@
-<h1>Search#search</h1>
+Search Results
 
 
-<%= form_tag('/search', :method => "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-<% end %>
+<br/>
+<br/>
+<% if @dr.nil? %>
+
+
+  No Results found
+
+<%  else %>
+  <% @dr.each  do |row|%>
+
+    <%= row.title %>
+
+   <br/>
+   Deal description : <%= row.description%>
+   <br/>
+   Deal end time  :  <%= row.end_time %>
+    <br/>
+<%end%>
+  <%  end %>

@@ -1,10 +1,15 @@
+
+<%content_for :tejas do %>
+  Hello Tejas! This is the yield! :)
+<% end  %>
+
 <h1>All Stores</h1>
 <% if @all %>
 Total :
 <%=  @all.size %>
 <% i = 0 %>
 <% @all.each do |store| %>
-</br>
+<br/>
 <% i = i + 1 %>
 <%= i %>)
 <%= link_to(store.store_name,:action => "get_store_details", :store_id => store._id) -%> 
