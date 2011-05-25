@@ -1,3 +1,9 @@
+require 'rubygems'
+require 'mongo'
+require 'koala'
+require 'twitter'
+require 'oauth'
+
 class ApplicationController < ActionController::Base
  
   before_filter :parse_facebook_cookies

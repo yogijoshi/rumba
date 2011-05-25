@@ -1,10 +1,5 @@
 # Edit this Gemfile to bundle your application's dependencies.
 
-require 'rubygems'
-require 'mongo'
-require 'koala'
-require 'twitter'
-require 'oauth'
 
 source 'http://gemcutter.org'
 
