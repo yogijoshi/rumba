@@ -1,4 +1,4 @@
 development:
-  hostname: 178.79.145.128
-  database: dealtadka_live
+  hostname: localhost
+  database: tejas-test-development 
 
