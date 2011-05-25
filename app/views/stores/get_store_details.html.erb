@@ -11,7 +11,14 @@
     });
 
   };
-  
+  (function() {
+                var e = document.createElement('script');
+                e.type = 'text/javascript';
+                e.src = document.location.protocol +
+                    '//connect.facebook.net/en_US/all.js';
+                e.async = true;
+                document.getElementById('fb-root').appendChild(e);
+            }());
   $(document).ready(
   function()
   {
@@ -27,7 +34,7 @@
                     if (response.session) {
                        if (response.perms) {
                         // logged in and connected user, someone you know
-                        login();
+                        window.location.href="/facebookinfo/index";
                        }
                     }
                     else
@@ -35,7 +42,7 @@
                         FB.login(function(response) {
                         if (response.session) {
                           if (response.perms) {
-                              login();
+                              window.location.href="/facebookinfo/index";
                               }
                           else {
                               alert("No permission");
