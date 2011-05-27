@@ -3,4 +3,17 @@
 # and open the template in the editor.
 %>
 
-<%= Stores.get_store_list("f").first %>
+<%  for i in 0 .. 9 %>
+  <%= link_to( i , :action => "storelist" , :alphabet => i )%>
+<%end %>
+
+<% for i in  'A'..'Z'  %>
+  <%= link_to( i , :action => "storelist" ,:alphabet => i) %>
+<%end %>
+
+
+<br/>
+<% @results.each do |store| %>
+  <br/>
+  <%= store.store_name %>
+<%end%>
