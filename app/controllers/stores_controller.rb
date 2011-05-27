@@ -51,5 +51,11 @@ class StoresController < ApplicationController
     #options[:total_entries] = @inactivedeals_coupons.size
     #@inactivedeals_coupons_p = @inactivedeals_coupons.paginate(options)
   end
-  
+
+
+  def storelist
+
+    
+
+  end
 end

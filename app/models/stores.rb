@@ -30,6 +30,13 @@ class Stores
    
    s = Stores.find(store_id)
  end
+
+ def self.get_store_list(alphabet)
+   alphabet = "^" + alphabet.to_s
+   Stores.where(:store_name => Regexp.new(alphabet))
+ end
+
+ 
 end
 
 

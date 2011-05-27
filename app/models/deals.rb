@@ -50,5 +50,14 @@ class Deals
      return Deals.where( :title => Regexp.new(query) )
    
  end
-  
+
+ def self.group 
+
+   @archive = Deals.collection.group(
+  "function(x) { return { month: x.datetime.getMonth(), year:x.datetime.getFullYear() }; }",
+  nil, { :count => 0 }, 'function(x,y){y.count++}', true)
+
+ end
+
+
 end
