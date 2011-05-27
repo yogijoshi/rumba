@@ -32,8 +32,11 @@ class Stores
  end
 
  def self.get_store_list(alphabet)
-   alphabet = "^" + alphabet.to_s
-   Stores.where(:store_name => Regexp.new(alphabet))
+   
+   alphabet.to_s
+   alphabet = "^" + alphabet
+
+   Stores.where(:store_name => Regexp.new(alphabet)).sort(:store_name.asc)
  end
 
  

@@ -57,7 +57,11 @@ class StoresController < ApplicationController
 
   def storelist
 
-    
+    @results = Stores.get_store_list( params[:alphabet].upcase)
+
+    if @results.empty?
+        render :text => "No stores found"
+    end
 
   end
 end
