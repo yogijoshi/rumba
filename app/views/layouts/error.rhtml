@@ -1,0 +1,19 @@
+<html>
+<head>
+  <title>Sorry</title>
+  <%=  javascript_include_tag :all,  :recursive => true %>
+  <style>
+
+    .error {
+      background:    #ffc;
+      margin-bottom: 4px;
+      padding:       4px;
+      border:        2px solid red;
+      width:         400px;
+    }
+  </style>
+</head>
+<body>
+<%= yield %>
+</body>
+</html>
