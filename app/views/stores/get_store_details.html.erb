@@ -107,6 +107,9 @@ function check_login_status(store_id)
     $('.popup_input_box_sms').click(function() {
             check_login_status("<%= @current_store._id %>");
     });
+    $('.popup_input_box_email').click(function() {
+            check_login_status("<%= @current_store._id %>");
+    });
   });
   
 </script>
