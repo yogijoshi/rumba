@@ -1,4 +1,6 @@
 Mongo::Application.routes.draw do |map|
+  get "error/showerror"
+
   get "twitter/index"
 
   get "twitter/login"
