@@ -6,3 +6,10 @@ development:
   username: dealtadka
   password: bpscqd38
 
+development2:
+  hostname: localhost
+  port: 27107
+  database: dealtadka_live
+  authenticate: false
+  username: 
+  password: 

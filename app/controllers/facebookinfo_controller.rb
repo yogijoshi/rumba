@@ -4,12 +4,14 @@ class FacebookinfoController < ApplicationController
       @graph = Koala::Facebook::GraphAPI.new(@facebook_cookies["access_token"])
       #@likes = graph.get_connections("me", "likes").to_
       #@mehash = @graph.get_object("me")
-      
+
       if Dealtadkauser.find_by_uid(@facebook_cookies["uid"]) == true
          flash[:message] = "user already exists"
       else
         user_hash = create_user_hash_fromfb()
       end
+      user_data = @graph.get_object("me")
+      redirect_to(:controller => "Stores",:action => "get_store_details", :store_id => params[:store_id], :email => user_data["email"])
   end
   def login
   end

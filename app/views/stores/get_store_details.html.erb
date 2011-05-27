@@ -1,7 +1,7 @@
 
 
 <h1>Details of current store</h1>
-<div id="fb-root"></div>
+
 <script type="text/javascript">
   window.fbAsyncInit = function() {
     FB.init({appId: '214912208528198', status: true, cookie: true, xfbml: true});
@@ -11,6 +11,84 @@
     });
 
   };
+function check_login_status(store_id)
+{
+   FB.getLoginStatus(function(response) {
+
+         if (response.session) {
+
+            if (response.perms) {
+
+             // logged in and connected user, someone you know
+             alert("h");
+             window.location.href="/facebookinfo/index?store_id="+ store_id.toString();
+
+            }
+
+            else
+
+            {
+
+                FB.login(function(response) {
+
+             if (response.session) {
+
+               if (response.perms) {
+
+                   window.location.href="/facebookinfo/index?store_id="+ store_id.toString();
+
+                   }
+
+               else {
+
+                   alert("No permission");
+
+                   }
+
+             }else {
+
+                   alert("No Login");
+
+               }
+
+             }, {perms:'read_stream,publish_stream,offline_access'});
+
+            }
+
+         }
+
+         else
+
+         {
+
+             FB.login(function(response) {
+
+             if (response.session) {
+
+               if (response.perms) {
+
+                    window.location.href="/facebookinfo/index?store_id="+ store_id.toString() ;
+                   }
+
+               else {
+
+                   alert("No permission");
+
+                   }
+
+             }else {
+
+                   alert("No Login");
+
+               }
+
+             }, {perms:'read_stream,publish_stream,offline_access'});
+
+         }
+
+     });
+
+ } 
   (function() {
                 var e = document.createElement('script');
                 e.type = 'text/javascript';
@@ -20,14 +98,17 @@
                 document.getElementById('fb-root').appendChild(e);
             }());
   $(document).ready(
+
   function()
   {
-    
+    //alert("<%=  @my_email %>");
+    var email_id = "<%=  @my_email %>";
+    $('.popup_input_box_email').val(email_id.toString());
     $('.popup_input_box_sms').click(function() {
-            check_login_status();
+            check_login_status("<%= @current_store._id %>");
     });
   });
- 
+  
 </script>
 
 
