@@ -48,6 +48,8 @@ class StoresController < ApplicationController
       @h["coupon"] = coup
       @inactivedeals_coupons << @h
     end
+    @my_email = params[:email]
+    
     #options[:total_entries] = @inactivedeals_coupons.size
     #@inactivedeals_coupons_p = @inactivedeals_coupons.paginate(options)
   end

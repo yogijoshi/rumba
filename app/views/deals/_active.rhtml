@@ -100,7 +100,7 @@
 
 
       <div class="pdt5px left" style="padding-top:13px;"><span class="fbicon"></span>
-        <span class="left blue f_size12"><a href="#" onclick="streampublish('<%=active['deal']._id%>')">Share Deal</a></span> <span class="fblike"></span><span id="<%=active['deal']._id%>_liketext" class="left blue f_size12"><a href="#" onclick="like('<%=active['deal']._id%>')">Like this deal</a></span>
+        <span class="left blue f_size12"><a href="" onclick="streampublish('<%=active['deal']._id%>')">Share Deal</a></span> <span class="fblike"></span><span id="<%=active['deal']._id%>_liketext" class="left blue f_size12"><a href="#" onclick="like('<%=active['deal']._id%>')">Like this deal</a></span>
       </div>
     </div>
 
@@ -108,15 +108,13 @@
     <!--start-->
     <div class="innerwrapshow">
 
-
-
       <div id="<%=active['deal']._id%>_navdetail" class="innerwrap">
         <span class="or2 gray bold">Download Deal:</span>
         <div id="tabs_container">
           <div class="popup_tabs_container_margin">
             <ul class="tabs">
-              <li id="<%=active['deal']._id%>_smsnav" class="selected"><span class="tab_inner_img_selected"><img src= "<%=@image_path%>sms.png" /></span><a clicktoshow="<%=active['deal']._id%>_popup_sms_details" clicktohide="<%=active['deal']._id%>_popup_email_details" href="#" onclick="enablesms('<%=active['deal']._id%>');">sms</a></li>
-              <li id="<%=active['deal']._id%>_emailnav" class=""><span class="tab_inner_img_unselected"><img src= "<%=@image_path%>mail.png" /></span><a clicktoshow="<%=active['deal']._id%>_popup_email_details" clicktohide="<%=active['deal']._id%>_popup_sms_details" href="#" onclick="enableemail('<%=active['deal']._id%>');">email</a></li>
+              <li id="<%=active['deal']._id%>_smsnav" onclick="select_sms('<%=active['deal']._id%>');" class="selected"><span class="tab_inner_img_selected"><img id="<%=active['deal']._id%>_imgsms" class="selected" src= "<%=@image_path%>sms.png" /></span><a clicktoshow="<%=active['deal']._id%>_popup_sms_details" clicktohide="<%=active['deal']._id%>_popup_email_details"  onclick="select_sms('<%=active['deal']._id%>');">sms</a></li>
+              <li id="<%=active['deal']._id%>_emailnav" onclick="select_email('<%=active['deal']._id%>');" class=""><span class="tab_inner_img_unselected"><img id="<%=active['deal']._id%>_imgemail" class="" src= "<%=@image_path%>mail.png" /></span><a clicktoshow="<%=active['deal']._id%>_popup_email_details" clicktohide="<%=active['deal']._id%>_popup_sms_details" onclick="select_email('<%=active['deal']._id%>');">email</a></li>
             </ul>
           </div>
         </div>

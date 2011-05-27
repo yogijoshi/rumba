@@ -1,5 +1,5 @@
 
-              function check_login_status()
+             function check_login_status()
             {
               FB.getLoginStatus(function(response) {
                     if (response.session) {
@@ -53,13 +53,18 @@
                alert("Hi");
             }
             //stream publish method
-            function streamPublish(name, description, hrefTitle, hrefLink, userPrompt){
+            function streampublish(name){
+                description ="desciption"
+                hrefTitle ="title"
+                hrefLink = "http://www.google.com/"
+                userPrompt ="userpromt"
+
                 FB.ui(
                 {
                     method: 'stream.publish',
                     message: '',
                     attachment: {
-                        name: name,
+                        name: "name",
                         caption: '',
                         description: (description),
                         href: hrefLink
@@ -130,4 +135,19 @@
                   }
                 );
             }
-  
+function select_email(dealid)
+{
+    $("#"+dealid+"_emailnav").addClass("selected");
+    $("#"+dealid+"_smsnav").removeClass("selected");
+    $("#"+dealid+"_popup_email_details").show();
+	$("#"+dealid+"_popup_sms_details").hide();
+
+}
+function select_sms(dealid)
+{
+    $("#"+dealid+"_smsnav").addClass("selected");
+    $("#"+dealid+"_emailnav").removeClass("selected");
+    $("#"+dealid+"_popup_email_details").hide();
+	$("#"+dealid+"_popup_sms_details").show();
+
+}
