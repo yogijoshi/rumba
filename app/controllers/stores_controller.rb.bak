@@ -20,10 +20,51 @@ class StoresController < ApplicationController
   end	
   
   def get_store_details
-  
-  	@current_store = Stores.find_this_store(params[:store_id])
-  	
-  	@activedeals_of_store = Deals.find_activedeals_by_store(params[:store_id])
+    begin
+      @activedeals_coupons = Array.new
+      @inactivedeals_coupons = Array.new
+      @current_store = Stores.find_this_store(params[:store_id])
+      options  = Hash.new
+      options[:page] = params[:page]
+      options[:per_page] = 2
+      @activedeals_of_store = Deals.find_activedeals_by_store(params[:store_id],options).to_a
+      for active_deal in @activedeals_of_store
+        store_short_code = Stores.get_short_code(active_deal.store_id)
+        coup = Couponsstat.get_coupon( active_deal.shortcode , store_short_code )
+        @h = Hash.new
+        @h["deal"] = active_deal
+        @h["deal"].fine_print = "Dummy"
+        @h["coupon"] = coup
+        @activedeals_coupons << @h
+      end
+      #options[:total_entries] = @activedeals_coupons.size
+      #@activedeals_coupons_p =  @activedeals_coupons.paginate(options)
+      options[:page] = params[:page]
+      options[:per_page] = 2
+      @inactivedeals_of_store = Deals.find_inactivedeals_by_store(params[:store_id],options).to_a
+      for inactive_deal in @inactivedeals_of_store
+        store_short_code = Stores.get_short_code(inactive_deal.store_id)
+        coup = Couponsstat.get_coupon( inactive_deal.shortcode , store_short_code )
+        @h = Hash.new
+        @h["deal"] = inactive_deal
+        @h["coupon"] = coup
+        @inactivedeals_coupons << @h
+      end
+      @my_email = params[:email]
+    
+      #options[:total_entries] = @inactivedeals_coupons.size
+      #@inactivedeals_coupons_p = @inactivedeals_coupons.paginate(options)
+    rescue Exception => e
+       redirect_to(:controller => 'error', :action => 'showerror', :message => e.message)
+    end
   end
-  
+  def storelist
+
+    @results = Stores.get_store_list( params[:alphabet].upcase)
+
+    if @results.empty?
+        render :text => "No stores found"
+    end
+
+  end
 end

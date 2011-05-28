@@ -111,6 +111,43 @@ function check_login_status(store_id)
             check_login_status("<%= @current_store._id %>");
     });
   });
+function streampublish(active)
+{
+              var deal;
+              //alert(location.pathname);
+              try
+              {
+                deal = JSON.parse(active);
+              }
+              catch(e)
+              {
+                alert(e.message);
+              }
+
+               FB.ui({
+                method: 'stream.publish',
+                display: 'popup',
+                message: 'Sharing deal from www.dealtadka.com',
+                attachment: {
+                    name: (deal.title),
+                    caption: 'Wanna share this deal !!!!!',
+                    description: (deal.description),
+                    href: (window.location.href.toString()) ,
+                },
+                action_links: [
+                {
+                    text: 'HoT Deal',
+                    href: (window.location.href.toString())
+                }
+                ],
+                user_prompt_message: 'Wanna share this deal !!!!!'
+                    },
+                    function(response) {
+                        if (response && response.post_id) {
+                            alert('Deal is shared on your wall.');
+                        } 
+  });
+}
   
 </script>
 

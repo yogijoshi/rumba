@@ -33,6 +33,7 @@ class StoresController < ApplicationController
         coup = Couponsstat.get_coupon( active_deal.shortcode , store_short_code )
         @h = Hash.new
         @h["deal"] = active_deal
+        @h["deal"].fine_print = "Dummy"
         @h["coupon"] = coup
         @activedeals_coupons << @h
       end
@@ -46,6 +47,7 @@ class StoresController < ApplicationController
         coup = Couponsstat.get_coupon( inactive_deal.shortcode , store_short_code )
         @h = Hash.new
         @h["deal"] = inactive_deal
+        @h["deal"].fine_print = "Dummy"
         @h["coupon"] = coup
         @inactivedeals_coupons << @h
       end
@@ -53,7 +55,6 @@ class StoresController < ApplicationController
     
       #options[:total_entries] = @inactivedeals_coupons.size
       #@inactivedeals_coupons_p = @inactivedeals_coupons.paginate(options)
-      raise 'test error'
     rescue Exception => e
        redirect_to(:controller => 'error', :action => 'showerror', :message => e.message)
     end

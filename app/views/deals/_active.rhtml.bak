@@ -100,7 +100,7 @@
 
 
       <div class="pdt5px left" style="padding-top:13px;"><span class="fbicon"></span>
-        <span class="left blue f_size12"><a href="" onclick="streampublish('<%= (active['deal'].to_json) %>')">Share Deal</a></span> <span class="fblike"></span><span id="<%=active['deal']._id%>_liketext" class="left blue f_size12"><a href="#" onclick="like('<%=active['deal']._id%>')">Like this deal</a></span>
+        <span class="left blue f_size12"><a href="" onclick="streampublish('<%=active['deal']._id%>')">Share Deal</a></span> <span class="fblike"></span><span id="<%=active['deal']._id%>_liketext" class="left blue f_size12"><a href="#" onclick="like('<%=active['deal']._id%>')">Like this deal</a></span>
       </div>
     </div>
 
