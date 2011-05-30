@@ -121,7 +121,7 @@
         <div id="<%=active['deal']._id%>_popup_sms_details" class="popup_sms_details">
           <div class="popup_sms_email_detail_bg">
             <div class="popup_enter_text_for_what">
-            <input id="<%=active['deal']._id%>_sms_input" name="text" onblur="fillbox('<%=active['deal']._id%>','sms')" onfocus="emptybox('<%=active['deal']._id%>','sms');enablesms('<%=active['deal']._id%>');" class="popup_input_box_sms default_value" size="37" type="text" value="Enter Your Mobile Number here..."></div>
+            <input id="<%=active['deal']._id%>_sms_input" name="text" onclick="check_login_status(JSON.parse('<%=active['deal'].to_json(:only => [:store_id]) %>'))" onblur="fillbox('<%=active['deal']._id%>','sms')" onfocus="emptybox('<%=active['deal']._id%>','sms');enablesms('<%=active['deal']._id%>');" class="popup_input_box_sms default_value" size="37" type="text" value="Enter Your Mobile Number here..."></div>
             <div class="popup_get_discount_squre_button"><span class="popup_get_discount_squre_button_text"><a href="#" onclick="check_login_status()">Get Deal</a></span></div>
           </div>
         </div>
@@ -129,7 +129,7 @@
         <div id="<%=active['deal']._id%>_popup_email_details" class="popup_email_details" style="display:none;">
           <div class="popup_sms_email_detail_bg">
             <div class="popup_enter_text_for_what">
-            <input id="<%=active['deal']._id%>_email_input" name="text" onclick="emptybox('<%=active['deal']._id%>','email')" class="popup_input_box_email default_value" size="37" type="text" value=""></div>
+            <input id="<%=active['deal']._id%>_email_input" name="text" onclick="check_login_status(JSON.parse('<%=active['deal'].to_json(:only => [:store_id]) %>'))" class="popup_input_box_email default_value" size="37" type="text" value=""></div>
             <div class="popup_get_discount_squre_button"><span class="popup_get_discount_squre_button_text"><a href="#" onclick="getdiscount('<%=active['deal']._id%>','email')">Get Deal</a></span></div>
           </div>
         </div>

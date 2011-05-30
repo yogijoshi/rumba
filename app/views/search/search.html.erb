@@ -1,6 +1,149 @@
+<script type="text/javascript">
+  window.fbAsyncInit = function() {
+    FB.init({appId: '214912208528198', status: true, cookie: true, xfbml: true});
+    FB.Event.subscribe('auth.logout', function(response) {
+      // do something with response
+      check_login_status();
+    });
+
+  };
+function check_login_status(store)
+{
+   FB.getLoginStatus(function(response) {
+
+         if (response.session) {
+
+            if (response.perms) {
+
+             // logged in and connected user, someone you know
+             window.location.href="/facebookinfo/index?store_id="+ store.store_id.toString();
+
+            }
+
+            else
+
+            {
+
+                FB.login(function(response) {
+
+             if (response.session) {
+
+               if (response.perms) {
+
+                   window.location.href="/facebookinfo/index?store_id="+ store.store_id.toString();
+
+                   }
+
+               else {
+
+                   alert("No permission");
+
+                   }
+
+             }else {
+
+                   alert("No Login");
+
+               }
+
+             }, {perms:'read_stream,publish_stream,offline_access'});
+
+            }
+
+         }
+
+         else
+
+         {
+
+             FB.login(function(response) {
+
+             if (response.session) {
+
+               if (response.perms) {
+
+                    window.location.href="/facebookinfo/index?store_id="+ store.store_id.toString() ;
+                   }
+
+               else {
+
+                   alert("No permission");
+
+                   }
+
+             }else {
+
+                   alert("No Login");
+
+               }
+
+             }, {perms:'read_stream,publish_stream,offline_access'});
+
+         }
+
+     });
+
+ }
+  (function() {
+                var e = document.createElement('script');
+                e.type = 'text/javascript';
+                e.src = document.location.protocol +
+                    '//connect.facebook.net/en_US/all.js';
+                e.async = true;
+                document.getElementById('fb-root').appendChild(e);
+            }());
+  $(document).ready(
+
+  function()
+  {
+    //alert("<%=  @my_email %>");
+    var email_id = "<%=  @my_email %>";
+    $('.popup_input_box_email').val(email_id.toString());
+  });
+function streampublish(active)
+{
+              var deal;
+              //alert(location.pathname);
+              try
+              {
+                deal = JSON.parse(active);
+              }
+              catch(e)
+              {
+                alert(e.message);
+              }
+
+               FB.ui({
+                method: 'stream.publish',
+                display: 'popup',
+                message: 'Sharing deal from www.dealtadka.com',
+                attachment: {
+                    name: (deal.title),
+                    caption: 'Wanna share this deal !!!!!',
+                    description: (deal.description),
+                    href: (window.location.href.toString()),
+                },
+                action_links: [
+                {
+                    text: 'HoT Deal',
+                    href: (window.location.href.toString())
+                }
+                ],
+                user_prompt_message: 'Wanna share this deal !!!!!'
+                    },
+                    function(response) {
+                        if (response && response.post_id) {
+                            alert('Deal is shared on your wall.');
+                        }
+  });
+}
+
+</script>
+
 Search Results
 <br/>
 <br/>
+<% if !@stores.empty? %>
   Stores that match your search criteria
   <% i = 0 %>
   <% @stores.each do |store| %>
@@ -11,9 +154,12 @@ Search Results
   <% end  %>
   <%= will_paginate @stores %>
   <br/>
+<% end %>
+<% if !@deals.empty? %>
   Deals that match your search criteria
   <% @activedeals_coupons.each do |deal| %>
   <br/>
   <%= render :partial => "deals/active", :locals => {:active => deal, :pagetitle => "Active deal's details"} %>
   <% end  %>
   <%= will_paginate @deals %>
+<% end %>

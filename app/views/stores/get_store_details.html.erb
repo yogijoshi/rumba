@@ -11,7 +11,7 @@
     });
 
   };
-function check_login_status(store_id)
+function check_login_status(store)
 {
    FB.getLoginStatus(function(response) {
 
@@ -20,8 +20,8 @@ function check_login_status(store_id)
             if (response.perms) {
 
              // logged in and connected user, someone you know
-             alert("h");
-             window.location.href="/facebookinfo/index?store_id="+ store_id.toString();
+
+             window.location.href="/facebookinfo/index?store_id="+ store.store_id.toString();
 
             }
 
@@ -35,7 +35,7 @@ function check_login_status(store_id)
 
                if (response.perms) {
 
-                   window.location.href="/facebookinfo/index?store_id="+ store_id.toString();
+                   window.location.href="/facebookinfo/index?store_id="+ store.store_id.toString();
 
                    }
 
@@ -67,7 +67,7 @@ function check_login_status(store_id)
 
                if (response.perms) {
 
-                    window.location.href="/facebookinfo/index?store_id="+ store_id.toString() ;
+                    window.location.href="/facebookinfo/index?store_id="+ store.store_id.toString() ;
                    }
 
                else {
@@ -103,12 +103,12 @@ function check_login_status(store_id)
   {
     //alert("<%=  @my_email %>");
     var email_id = "<%=  @my_email %>";
-    $('.popup_input_box_email').val(email_id.toString());
+    $('.popup_input_box_email').val(email_id.toString());tal
     $('.popup_input_box_sms').click(function() {
-            check_login_status("<%= @current_store._id %>");
+            check_login_status(JSON.parse('<%=@current_store.to_json(:only => [:store_id]) %>'));
     });
     $('.popup_input_box_email').click(function() {
-            check_login_status("<%= @current_store._id %>");
+      check_login_status(JSON.parse('<%=@current_store.to_json(:only => [:store_id]) %>'));
     });
   });
 function streampublish(active)

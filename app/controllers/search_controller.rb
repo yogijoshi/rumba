@@ -3,7 +3,7 @@ class SearchController < ApplicationController
   def search
    begin
      query = params[:query]
-
+     @my_email = params[:email]
       if ! query.nil?
 
        # query ="^"+ query.to_s
