@@ -101,8 +101,9 @@ function check_login_status(store)
 
   function()
   {
-    //alert("<%=  @my_email %>");
-    var email_id = "<%=  @my_email %>";
+    <% if !session[:email].nil? %>
+    var email_id = "<%= session[:email] %>";
+    <% end %>
     $('.popup_input_box_email').val(email_id.toString());tal
     $('.popup_input_box_sms').click(function() {
             check_login_status(JSON.parse('<%=@current_store.to_json(:only => [:store_id]) %>'));

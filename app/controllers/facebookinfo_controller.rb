@@ -11,6 +11,7 @@ class FacebookinfoController < ApplicationController
         user_hash = create_user_hash_fromfb()
       end
       user_data = @graph.get_object("me")
+      session[:email] = user_data["email"]
       redirect_to( request.referer + "&store_id=" + params[:store_id] + "&email=" + user_data["email"])
   end
   def login
