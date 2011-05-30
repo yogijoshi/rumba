@@ -1,22 +1,19 @@
 Search Results
-
-
 <br/>
 <br/>
-<% if @dr.nil? %>
-
-
-  No Results found
-
-<%  else %>
-  <% @dr.each  do |row|%>
-
-    <%= row.title %>
-
-   <br/>
-   Deal description : <%= row.description%>
-   <br/>
-   Deal end time  :  <%= row.end_time %>
-    <br/>
-<%end%>
-  <%  end %>
+  Stores that match your search criteria
+  <% i = 0 %>
+  <% @stores.each do |store| %>
+  <br/>
+  <% i = i + 1 %>
+  <%= i %>)
+  <%= link_to(store.store_name,:controller =>"Stores",:action => "get_store_details", :store_id => store._id) -%>
+  <% end  %>
+  <%= will_paginate @stores %>
+  <br/>
+  Deals that match your search criteria
+  <% @activedeals_coupons.each do |deal| %>
+  <br/>
+  <%= render :partial => "deals/active", :locals => {:active => deal, :pagetitle => "Active deal's details"} %>
+  <% end  %>
+  <%= will_paginate @deals %>

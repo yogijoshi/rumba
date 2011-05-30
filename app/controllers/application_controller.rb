@@ -3,6 +3,8 @@ require 'mongo'
 require 'koala'
 require 'twitter'
 require 'oauth'
+require 'pp'
+require 'hunt'
 
 class ApplicationController < ActionController::Base
 

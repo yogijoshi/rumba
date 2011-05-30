@@ -1,7 +1,17 @@
 class Deals
 
   include MongoMapper::Document
-  PAGINATOR = 2
+  plugin Hunt
+  key :title, String
+  key :category, Array
+  key :deal_type, String
+  key :description,  String
+
+  searches :title, :category, :deal_type, :description
+  def self.search_deals(search_string,page)
+    Deals.search(search_string).paginate(:page => page, :per_page => 5)
+  end
+
   def self.find_activedeals_by_store(store_id, pagination_options)
   
   	deals =  Deals.where(:status => 'active', :store_id => store_id).paginate(pagination_options)

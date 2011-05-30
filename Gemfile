@@ -6,6 +6,7 @@ source 'http://gemcutter.org'
 gem "rails", "3.0.6"
 gem "mongo_mapper"
 gem 'koala'
+gem 'hunt'
 gem 'ruby-debug'
 gem 'twitter'
 gem 'oauth', '~> 0.4.4'

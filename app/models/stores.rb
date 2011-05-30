@@ -1,10 +1,25 @@
 class Stores
 
-  include MongoMapper::Document   
+  include MongoMapper::Document
+  plugin Hunt
+  key :address1, String
+  key :address2, String
+  key :categories,  Array
+  key :tags,  String
+  key :city, String
+  key :pin_code, String
+  key :email, String
+
+  searches :address1, :address2, :categories, :tags, :city, :pin_code, :email
+
+  def self.get_related_stores(search_string,pagenum)
+     Stores.search(search_string).paginate(:page => pagenum, :per_page => 2)
+  end
+
   def self.get_all_stores
-   #debugger
-   name="Deals"
-   s = Stores.all
+     #debugger
+    name="Deals"
+    s = Stores.all
   end
 
 
