@@ -12,7 +12,7 @@ class FacebookinfoController < ApplicationController
       end
       user_data = @graph.get_object("me")
       session[:email] = user_data["email"]
-      redirect_to( request.referer + "&store_id=" + params[:store_id] + "&email=" + user_data["email"])
+      redirect_to( request.referer + "&store_id=" + params[:store_id] )
   end
   def login
   end

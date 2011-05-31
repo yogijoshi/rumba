@@ -60,12 +60,13 @@ class StoresController < ApplicationController
     end
   end
   def storelist
-
-    @results = Stores.get_store_list( params[:alphabet].upcase)
-
-    if @results.empty?
-        render :text => "No stores found"
+    begin
+      @results = Stores.get_store_list(params[:alphabet].to_s.upcase)
+      if @results.empty?
+          raise "No results matching your criteria"
+      end
+    rescue Exception => e
+       redirect_to(:controller => 'error', :action => 'showerror', :message => e.message)
     end
-
   end
 end

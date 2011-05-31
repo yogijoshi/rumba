@@ -14,6 +14,6 @@
 
 <br/>
 <% @results.each do |store| %>
-  <br/>
-  <%= store.store_name %>
+<br/>
+<%= link_to(store.store_name,:controller =>"Stores",:action => "get_store_details", :store_id => store._id) -%>
 <%end%>

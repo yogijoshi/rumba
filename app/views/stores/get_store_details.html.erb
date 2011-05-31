@@ -112,19 +112,9 @@ function check_login_status(store)
       check_login_status(JSON.parse('<%=@current_store.to_json(:only => [:store_id]) %>'));
     });
   });
-function streampublish(active)
+function streampublish(deal)
 {
-              var deal;
-              //alert(location.pathname);
-              try
-              {
-                deal = JSON.parse(active);
-              }
-              catch(e)
-              {
-                alert(e.message);
-              }
-
+  alert(deal.toString());
                FB.ui({
                 method: 'stream.publish',
                 display: 'popup',

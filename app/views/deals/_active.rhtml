@@ -14,10 +14,10 @@
 
         <div class="coupon_img">
           <a href="#">
-            <img title="Click on the image for preview." id="<%=active['deal']._id %>_dealimage" width="75" height="75" onclick="showimage('<%=active['deal'].image %>')" src="<%=active['deal'].image %>">
+            <img title="Click on the image for preview." id="<%=active['deal']._id %>_dealimage" width="75" height="75" onclick="showimage('<%= @image_path%><%=active['deal'].image %>')" src="<%= @image_path%><%=active['deal'].image %>">
           </a>
         </div>
-        <input type="hidden" id="<%=active['deal']._id%>_dealimagejson" value="<%=active['deal'].image%>"/>
+        <input type="hidden" id="<%=active['deal']._id%>_dealimagejson" value='"<%= @image_path%>"+"<%=active['deal'].image%>"'/>
       </div>
       <div id="<%=active['deal']._id%>_tc" class="fb_15_15_text blue">
         <a href="#" onclick="tandc('<%=active['deal']._id%>');" class="blue">Terms &amp; Conditions</a>
@@ -100,7 +100,7 @@
 
 
       <div class="pdt5px left" style="padding-top:13px;"><span class="fbicon"></span>
-        <span class="left blue f_size12"><a href="" onclick="streampublish('<%= (active['deal'].to_json) %>')">Share Deal</a></span> <span class="fblike"></span><span id="<%=active['deal']._id%>_liketext" class="left blue f_size12"><a href="#" onclick="like('<%=active['deal']._id%>')">Like this deal</a></span>
+        <span class="left blue f_size12"><a href="" onclick="streampublish(JSON.parse('<%= (active['deal'].to_json(:only => [:title])) %>'))">Share Deal</a></span> <span class="fblike"></span><span id="<%=active['deal']._id%>_liketext" class="left blue f_size12"><a href="#" onclick="like('<%=active['deal']._id%>')">Like this deal</a></span>
       </div>
     </div>
 

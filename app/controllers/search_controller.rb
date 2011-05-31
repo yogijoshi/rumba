@@ -22,7 +22,6 @@ class SearchController < ApplicationController
           coup = Couponsstat.get_coupon( active_deal.shortcode , store_short_code )
           @h = Hash.new
           @h["deal"] = active_deal
-          @h["deal"].fine_print = "Dummy"
           @h["coupon"] = coup
           @activedeals_coupons << @h
         end
